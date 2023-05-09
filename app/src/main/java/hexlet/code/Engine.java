@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Engine {
     public static void generalStructure() {
         int gameNumber = App.gameSelection();
-        if (gameNumber == 0 || gameNumber == 1 ) return;
+        if (gameNumber == 0 || gameNumber == 1) return;
         else {
             int countCorrectAnswer = 0;
             for (int i = 0; i < 3; i++) {
@@ -21,8 +21,7 @@ public class Engine {
                     if (countCorrectAnswer == 3) {
                         System.out.println("Congratulations, " + Cli.name + "!");
                     }
-                }
-                else {
+                } else {
                     System.out.println("'" + userAnswer + "' " + "is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'" + ".");
                     System.out.println("Let's try again, " + Cli.name + "!");
                     break;
@@ -35,7 +34,7 @@ public class Engine {
         Cli.greeting();
     }
 
-    public static String questionSelection(int gameNumber, int index, String question2_0) {
+    public static String questionSelection(int gameNumber, int index, String question2) {
         String question = "";
         String correctAnswer = "";
         switch (gameNumber) {
@@ -43,27 +42,33 @@ public class Engine {
                 if (index == 1) {
                     question = Even.generatingQuestion();
                 } else {
-                    correctAnswer = Even.correctAnswer(question2_0);
+                    correctAnswer = Even.correctAnswer(question2);
                 }
                 break;
             case 3:
                 if (index == 1) {
                     question = Calc.generatingQuestion();
                 } else {
-                    correctAnswer = Calc.correctAnswer(question2_0);
+                    correctAnswer = Calc.correctAnswer(question2);
                 }
                 break;
             case 4:
                 if (index == 1) {
                     question = GCD.generatingQuestion();
                 } else {
-                    correctAnswer = GCD.correctAnswer(question2_0);
+                    correctAnswer = GCD.correctAnswer(question2);
                 }
             case 5:
                 if (index == 1) {
                     question = Progression.generatingQuestion();
                 } else {
-                    correctAnswer = Progression.correctAnswer(question2_0);
+                    correctAnswer = Progression.correctAnswer(question2);
+                }
+            case 6:
+                if (index == 1) {
+                    question = Prime.generatingQuestion();
+                } else {
+                    correctAnswer = Prime.correctAnswer(question2);
                 }
         }
         if (index == 1) return question;
