@@ -42,25 +42,28 @@ public class Engine {
             case 2:
                 if (index == 1) {
                     question = Even.generatingQuestion();
-                }
-                else {
+                } else {
                     correctAnswer = Even.correctAnswer(question2_0);
                 }
                 break;
             case 3:
                 if (index == 1) {
                     question = Calc.generatingQuestion();
-                }
-                else {
+                } else {
                     correctAnswer = Calc.correctAnswer(question2_0);
                 }
                 break;
             case 4:
                 if (index == 1) {
                     question = GCD.generatingQuestion();
-                }
-                else {
+                } else {
                     correctAnswer = GCD.correctAnswer(question2_0);
+                }
+            case 5:
+                if (index == 1) {
+                    question = Progression.generatingQuestion();
+                } else {
+                    correctAnswer = Progression.correctAnswer(question2_0);
                 }
         }
         if (index == 1) return question;
