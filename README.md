@@ -10,4 +10,6 @@ demonstration of the game "GCD" - https://asciinema.org/a/Fo772YCqEpXa4dziZ6c1Cp
 
 demonstration of the game "Progression" - https://asciinema.org/a/l1L4iPKag0W2Gnv5XFDnZFmkm
 
+demonstration of the game "Prime" - https://asciinema.org/a/CKSRsE6NrqkH7gAljE3jM8jYb
+
 
