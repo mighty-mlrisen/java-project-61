@@ -1,9 +1,7 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 import org.apache.commons.lang3.RandomUtils;
-import java.util.Scanner;
 
 public class Even {
     public static void startingGame() {
