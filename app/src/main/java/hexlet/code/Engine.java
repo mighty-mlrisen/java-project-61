@@ -1,8 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-
+import hexlet.code.games.*;
 import java.util.Scanner;
 
 public class Engine {
@@ -57,6 +55,13 @@ public class Engine {
                     correctAnswer = Calc.correctAnswer(question2_0);
                 }
                 break;
+            case 4:
+                if (index == 1) {
+                    question = GCD.generatingQuestion();
+                }
+                else {
+                    correctAnswer = GCD.correctAnswer(question2_0);
+                }
         }
         if (index == 1) return question;
         else return correctAnswer;
