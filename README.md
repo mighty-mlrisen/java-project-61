@@ -8,4 +8,6 @@ demonstration of the game "Calc" - https://asciinema.org/a/Rx7s8J7kVKiHqK4JqE29X
 
 demonstration of the game "GCD" - https://asciinema.org/a/Fo772YCqEpXa4dziZ6c1Cpp7d
 
+demonstration of the game "Progression" - https://asciinema.org/a/l1L4iPKag0W2Gnv5XFDnZFmkm
+
 
