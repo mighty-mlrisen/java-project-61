@@ -11,8 +11,8 @@ public class Progression {
     }
 
     public static String generatingQuestion() {
-        int number1 = RandomUtils.nextInt(1,16);
-        int progressionDifferences = RandomUtils.nextInt(1,10);
+        int number1 = RandomUtils.nextInt(1, 16);
+        int progressionDifferences = RandomUtils.nextInt(1, 10);
         String[] values = new String[10];
         values[0] = Integer.toString(number1);
         int number = number1;
@@ -20,15 +20,15 @@ public class Progression {
             number += progressionDifferences;
             values[i] = Integer.toString(number);
         }
-        int index = RandomUtils.nextInt(0,10);
+        int index = RandomUtils.nextInt(0, 10);
         values[index] = "..";
-        String progression = String.join(" ",values);
+        String progression = String.join(" ", values);
         return progression;
     }
 
     public static String correctAnswer(String question) {
         String[] values = question.split(" ");
-        int index = 0 , missingNumber;
+        int index = 0, missingNumber;
         for (int i = 0; i < values.length; i++) {
             if (values[i].equals("..")) {
                 index = i;

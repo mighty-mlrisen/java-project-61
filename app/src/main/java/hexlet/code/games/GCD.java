@@ -11,8 +11,8 @@ public class GCD {
     }
 
     public static String generatingQuestion() {
-        int number1 = RandomUtils.nextInt(1,101);
-        int number2 = RandomUtils.nextInt(1,101);
+        int number1 = RandomUtils.nextInt(1, 101);
+        int number2 = RandomUtils.nextInt(1, 101);
         return Integer.toString(number1) + " " + Integer.toString(number2);
     }
 
@@ -23,7 +23,7 @@ public class GCD {
         int temp, nod = 1;
         if (number1 > number2) temp = number2;
         else temp = number1;
-        for (int i = temp; i > 0; i-= 1) {
+        for (int i = temp; i > 0; i -= 1) {
             if (number1 % i == 0 && number2 % i == 0) {
                 nod = i;
                 return Integer.toString(nod);

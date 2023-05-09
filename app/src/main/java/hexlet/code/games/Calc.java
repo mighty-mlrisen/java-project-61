@@ -10,9 +10,9 @@ public class Calc {
     }
 
     public static String generatingQuestion() {
-        int number1 = RandomUtils.nextInt(0,20);
-        int number2 = RandomUtils.nextInt(0,20);
-        int index = RandomUtils.nextInt(0,3);
+        int number1 = RandomUtils.nextInt(0, 20);
+        int number2 = RandomUtils.nextInt(0, 20);
+        int index = RandomUtils.nextInt(0, 3);
         String[] operations = {"+", "*", "-"};
         String result = number1 + " " + operations[index] + " " + number2;
         return result;
@@ -25,10 +25,9 @@ public class Calc {
         int result;
         if (array[1].equals("+")) {
             result = number1 + number2;
-        } else if(array[1].equals("*")) {
+        } else if (array[1].equals("*")) {
             result = number1 * number2;
-        }
-        else {
+        } else {
             result = number1 - number2;
         }
         return Integer.toString(result);
