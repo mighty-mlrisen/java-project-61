@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD\n" + "0 - Exit");
+        System.out.println("1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD\n" + "5 - Progression\n" + "0 - Exit");
         System.out.print("Your choice: ");
         Engine.generalStructure();
     }
@@ -28,6 +28,8 @@ public class App {
                 break;
             case 4:
                 GCD.startingGame();
+            case 5:
+                Progression.startingGame();
         }
         return number;
     }
