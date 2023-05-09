@@ -6,4 +6,6 @@ demonstration of the game "Even" - https://asciinema.org/a/u1lzgA8PLf8S1FK63nodh
 
 demonstration of the game "Calc" - https://asciinema.org/a/Rx7s8J7kVKiHqK4JqE29XipLf
 
+demonstration of the game "GCD" - https://asciinema.org/a/Fo772YCqEpXa4dziZ6c1Cpp7d
+
 
