@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Calc;
 import java.util.Scanner;
 
 public class Engine {
@@ -37,42 +41,36 @@ public class Engine {
     public static String questionSelection(int gameNumber, int index, String question2) {
         String question = "";
         String correctAnswer = "";
-        switch (gameNumber) {
-            case 2:
-                if (index == 1) {
-                    question = Even.generatingQuestion();
-                } else {
-                    correctAnswer = Even.correctAnswer(question2);
-                }
-                break;
-            case 3:
-                if (index == 1) {
-                    question = Calc.generatingQuestion();
-                } else {
-                    correctAnswer = Calc.correctAnswer(question2);
-                }
-                break;
-            case 4:
-                if (index == 1) {
-                    question = GCD.generatingQuestion();
-                } else {
-                    correctAnswer = GCD.correctAnswer(question2);
-                }
-                break;
-            case 5:
-                if (index == 1) {
-                    question = Progression.generatingQuestion();
-                } else {
-                    correctAnswer = Progression.correctAnswer(question2);
-                }
-                break;
-            case 6:
-                if (index == 1) {
-                    question = Prime.generatingQuestion();
-                } else {
-                    correctAnswer = Prime.correctAnswer(question2);
-                }
-                break;
+        if (gameNumber == 2) {
+            if (index == 1) {
+                question = Even.generateEvenQuestion();
+            } else {
+                correctAnswer = Even.getEvenCorrectAnswer(question2);
+            }
+        } else if (gameNumber == 3) {
+            if (index == 1) {
+                question = Calc.generateCalcQuestion();
+            } else {
+                correctAnswer = Calc.getCalcCorrectAnswer(question2);
+            }
+        } else if (gameNumber == 4) {
+            if (index == 1) {
+                question = GCD.generateGCDQuestion();
+            } else {
+                correctAnswer = GCD.getGCDCorrectAnswer(question2);
+            }
+        } else if (gameNumber == 5) {
+            if (index == 1) {
+                question = Progression.generateProgressionQuestion();
+            } else {
+                correctAnswer = Progression.getProgressionCorrectAnswer(question2);
+            }
+        } else if (gameNumber == 6) {
+            if (index == 1) {
+                question = Prime.generatePrimeQuestion();
+            } else {
+                correctAnswer = Prime.getPrimeCorrectAnswer(question2);
+            }
         }
         return getSelectedContent(index, question, correctAnswer);
     }
