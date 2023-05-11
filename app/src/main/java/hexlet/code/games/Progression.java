@@ -35,10 +35,16 @@ public class Progression {
             }
         }
         if (index - 2 >= 0) {
-            missingNumber = Integer.parseInt(values[index - 1]) + (Integer.parseInt(values[index - 1]) - Integer.parseInt(values[index - 2]));
+            missingNumber = calculateMissingNumber(values, index, -1, -2);
         } else {
-            missingNumber = Integer.parseInt(values[index + 1]) - (Integer.parseInt(values[index + 2]) - Integer.parseInt(values[index + 1]));
+            missingNumber = calculateMissingNumber(values, index, +1, +2);
         }
         return Integer.toString(missingNumber);
+    }
+
+    private static int calculateMissingNumber(String[] values, int index, int prevIndex, int prevPrevIndex) {
+        int prevValue = Integer.parseInt(values[index + prevIndex]);
+        int prevPrevValue = Integer.parseInt(values[index + prevPrevIndex]);
+        return prevValue + (prevValue - prevPrevValue);
     }
 }
