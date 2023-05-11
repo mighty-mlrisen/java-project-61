@@ -74,7 +74,14 @@ public class Engine {
                 }
                 break;
         }
-        if (index == 1) return question;
-        else return correctAnswer;
+        return getSelectedContent(index, question, correctAnswer);
+    }
+
+    private static String getSelectedContent(int index, String question, String correctAnswer) {
+        if (index == 1) {
+            return question;
+        } else {
+            return correctAnswer;
+        }
     }
 }
