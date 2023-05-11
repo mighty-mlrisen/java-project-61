@@ -21,10 +21,8 @@ public class Engine {
     private static void launchGeneralStructure(int gameNumber) {
         int countCorrectAnswer = 0;
         for (int i = 0; i < 3; i++) {
-            String question = Engine.questionSelection(gameNumber, 1, null);
-            System.out.print("Question: " + question + "\n" + "Your answer: ");
+            String correctAnswer = Engine.getCorrectAnswer(gameNumber);
             String userAnswer = Engine.getUserAnswer();
-            String correctAnswer = Engine.questionSelection(gameNumber, 2, question);
             if (correctAnswer.equals(userAnswer)) {
                 System.out.println("Correct!");
                 countCorrectAnswer += 1;
@@ -37,6 +35,15 @@ public class Engine {
             }
         }
     }
+
+    private static String getCorrectAnswer(int gameNumber) {
+        String question = Engine.questionSelection(gameNumber, 1, null);
+        System.out.print("Question: " + question + "\n" + "Your answer: ");
+        String correctAnswer = Engine.questionSelection(gameNumber, 2, question);
+        return correctAnswer;
+    }
+
+
     private static void getWrongAnswer(String userAnswer, String correctAnswer) {
         System.out.println("'" + userAnswer + "' " + "is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'" + ".");
         System.out.println("Let's try again, " + Cli.name + "!");
