@@ -9,7 +9,7 @@ public class Calc {
         System.out.println("What is the result of the expression?");
     }
 
-    public static String generatingQuestion() {
+    public static String generateCalcQuestion() {
         int number1 = RandomUtils.nextInt(0, 20);
         int number2 = RandomUtils.nextInt(0, 20);
         int index = RandomUtils.nextInt(0, 3);
@@ -18,7 +18,7 @@ public class Calc {
         return result;
     }
 
-    public static String correctAnswer(String question) {
+    public static String getCalcCorrectAnswer(String question) {
         String[] array = question.split(" ");
         int number1 = Integer.parseInt(array[0]);
         int number2 = Integer.parseInt(array[2]);

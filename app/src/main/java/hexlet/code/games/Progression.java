@@ -10,7 +10,7 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
     }
 
-    public static String generatingQuestion() {
+    public static String generateProgressionQuestion() {
         int number1 = RandomUtils.nextInt(1, 16);
         int progressionDifferences = RandomUtils.nextInt(1, 10);
         String[] values = new String[10];
@@ -26,7 +26,7 @@ public class Progression {
         return progression;
     }
 
-    public static String correctAnswer(String question) {
+    public static String getProgressionCorrectAnswer(String question) {
         String[] values = question.split(" ");
         int index = 0, missingNumber;
         for (int i = 0; i < values.length; i++) {

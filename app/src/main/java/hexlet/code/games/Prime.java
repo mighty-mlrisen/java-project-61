@@ -9,12 +9,12 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-    public static String generatingQuestion() {
+    public static String generatePrimeQuestion() {
         int number = RandomUtils.nextInt(1, 100);
         return Integer.toString(number);
     }
 
-    public static String correctAnswer(String question) {
+    public static String getPrimeCorrectAnswer(String question) {
         int number = Integer.parseInt(question);
         if (number == 1) return "no";
         for (int d = 2; d * d <= number; d++) {

@@ -10,13 +10,13 @@ public class GCD {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
 
-    public static String generatingQuestion() {
+    public static String generateGCDQuestion() {
         int number1 = RandomUtils.nextInt(1, 101);
         int number2 = RandomUtils.nextInt(1, 101);
         return Integer.toString(number1) + " " + Integer.toString(number2);
     }
 
-    public static String correctAnswer(String question) {
+    public static String getGCDCorrectAnswer(String question) {
         String[] values = question.split(" ");
         int number1 = Integer.parseInt(values[0]);
         int number2 = Integer.parseInt(values[1]);

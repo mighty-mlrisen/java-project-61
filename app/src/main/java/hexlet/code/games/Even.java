@@ -9,12 +9,12 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
 
-    public static String generatingQuestion() {
+    public static String generateEvenQuestion() {
         int number = RandomUtils.nextInt(0, 1000);
         return Integer.toString(number);
     }
 
-    public static String correctAnswer(String question) {
+    public static String getEvenCorrectAnswer(String question) {
         int number = Integer.parseInt(question);
         if (number % 2 == 0) return "yes";
         else return "no";
