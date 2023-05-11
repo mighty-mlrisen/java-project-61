@@ -58,18 +58,21 @@ public class Engine {
                 } else {
                     correctAnswer = GCD.correctAnswer(question2);
                 }
+                break;
             case 5:
                 if (index == 1) {
                     question = Progression.generatingQuestion();
                 } else {
                     correctAnswer = Progression.correctAnswer(question2);
                 }
+                break;
             case 6:
                 if (index == 1) {
                     question = Prime.generatingQuestion();
                 } else {
                     correctAnswer = Prime.correctAnswer(question2);
                 }
+                break;
         }
         if (index == 1) return question;
         else return correctAnswer;

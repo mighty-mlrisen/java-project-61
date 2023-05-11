@@ -28,10 +28,13 @@ public class App {
                 break;
             case 4:
                 GCD.startingGame();
+                break;
             case 5:
                 Progression.startingGame();
+                break;
             case 6:
                 Prime.startingGame();
+                break;
         }
         return number;
     }
