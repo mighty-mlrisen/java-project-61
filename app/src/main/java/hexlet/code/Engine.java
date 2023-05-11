@@ -8,30 +8,43 @@ import hexlet.code.games.Calc;
 import java.util.Scanner;
 
 public class Engine {
-    public static void generalStructure() {
+
+    public static void playGame() {
         int gameNumber = App.gameSelection();
-        if (gameNumber == 0 || gameNumber == 1) return;
+        if (gameNumber == 0 || gameNumber == 1) {
+            return;
+        }
         else {
-            int countCorrectAnswer = 0;
-            for (int i = 0; i < 3; i++) {
-                String question = Engine.questionSelection(gameNumber, 1, null);
-                System.out.print("Question: " + question + "\n" + "Your answer: ");
-                Scanner scanner = new Scanner(System.in);
-                String userAnswer = scanner.nextLine();
-                String correctAnswer = Engine.questionSelection(gameNumber, 2, question);
-                if (correctAnswer.equals(userAnswer)) {
-                    System.out.println("Correct!");
-                    countCorrectAnswer += 1;
-                    if (countCorrectAnswer == 3) {
-                        System.out.println("Congratulations, " + Cli.name + "!");
-                    }
-                } else {
-                    System.out.println("'" + userAnswer + "' " + "is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'" + ".");
-                    System.out.println("Let's try again, " + Cli.name + "!");
-                    break;
+            launchGeneralStructure(gameNumber);
+        }
+    }
+    private static void launchGeneralStructure(int gameNumber) {
+        int countCorrectAnswer = 0;
+        for (int i = 0; i < 3; i++) {
+            String question = Engine.questionSelection(gameNumber, 1, null);
+            System.out.print("Question: " + question + "\n" + "Your answer: ");
+            String userAnswer = Engine.getUserAnswer();
+            String correctAnswer = Engine.questionSelection(gameNumber, 2, question);
+            if (correctAnswer.equals(userAnswer)) {
+                System.out.println("Correct!");
+                countCorrectAnswer += 1;
+                if (countCorrectAnswer == 3) {
+                    System.out.println("Congratulations, " + Cli.name + "!");
                 }
+            } else {
+                Engine.getWrongAnswer(userAnswer, correctAnswer);
+                break;
             }
         }
+    }
+    private static void getWrongAnswer(String userAnswer, String correctAnswer) {
+        System.out.println("'" + userAnswer + "' " + "is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'" + ".");
+        System.out.println("Let's try again, " + Cli.name + "!");
+    }
+
+    private static String getUserAnswer() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
     public static void launchGreeting() {
