@@ -10,15 +10,20 @@ public class Prime {
     }
 
     public static String generatePrimeQuestion() {
-        int number = RandomUtils.nextInt(1, 100);
+        int maxNumber = 100;
+        int number = RandomUtils.nextInt(1, maxNumber);
         return Integer.toString(number);
     }
 
     public static String getPrimeCorrectAnswer(String question) {
         int number = Integer.parseInt(question);
-        if (number == 1) return "no";
+        if (number == 1) {
+            return "no";
+        }
         for (int d = 2; d * d <= number; d++) {
-            if (number % d == 0) return "no";
+            if (number % d == 0) {
+                return "no";
+            }
         }
         return "yes";
     }

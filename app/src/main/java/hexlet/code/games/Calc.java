@@ -10,9 +10,10 @@ public class Calc {
     }
 
     public static String generateCalcQuestion() {
-        int number1 = RandomUtils.nextInt(0, 20);
-        int number2 = RandomUtils.nextInt(0, 20);
-        int index = RandomUtils.nextInt(0, 3);
+        int maxNumber = 20, maxIndex = 3;
+        int number1 = RandomUtils.nextInt(0, maxNumber);
+        int number2 = RandomUtils.nextInt(0, maxNumber);
+        int index = RandomUtils.nextInt(0, maxIndex);
         String[] operations = {"+", "*", "-"};
         String result = number1 + " " + operations[index] + " " + number2;
         return result;

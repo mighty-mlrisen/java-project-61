@@ -11,8 +11,11 @@ public class Progression {
     }
 
     public static String generateProgressionQuestion() {
-        int number1 = RandomUtils.nextInt(1, 16);
-        int progressionDifferences = RandomUtils.nextInt(1, 10);
+        int maxNumber = 16;
+        int maxProgressionDifferences = 10;
+        int maxIndex = 10;
+        int number1 = RandomUtils.nextInt(1, maxNumber);
+        int progressionDifferences = RandomUtils.nextInt(1, maxProgressionDifferences);
         String[] values = new String[10];
         values[0] = Integer.toString(number1);
         int number = number1;
@@ -20,7 +23,7 @@ public class Progression {
             number += progressionDifferences;
             values[i] = Integer.toString(number);
         }
-        int index = RandomUtils.nextInt(0, 10);
+        int index = RandomUtils.nextInt(0, maxIndex);
         values[index] = "..";
         String progression = String.join(" ", values);
         return progression;
@@ -28,13 +31,15 @@ public class Progression {
 
     public static String getProgressionCorrectAnswer(String question) {
         String[] values = question.split(" ");
-        int index = 0, missingNumber;
+        int index = 0;
+        int missingNumber;;
         for (int i = 0; i < values.length; i++) {
             if (values[i].equals("..")) {
                 index = i;
             }
         }
-        if (index - 2 >= 0) {
+        int movingToPrevPrevIndex = 2;
+        if (index - movingToPrevPrevIndex >= 0) {
             missingNumber = calculateMissingNumber(values, index, -1, -2);
         } else {
             missingNumber = calculateMissingNumber(values, index, +1, +2);

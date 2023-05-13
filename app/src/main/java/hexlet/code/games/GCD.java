@@ -11,8 +11,9 @@ public class GCD {
     }
 
     public static String generateGCDQuestion() {
-        int number1 = RandomUtils.nextInt(1, 101);
-        int number2 = RandomUtils.nextInt(1, 101);
+        int maxNumber = 101;
+        int number1 = RandomUtils.nextInt(1, maxNumber);
+        int number2 = RandomUtils.nextInt(1, maxNumber);
         return Integer.toString(number1) + " " + Integer.toString(number2);
     }
 
@@ -20,9 +21,14 @@ public class GCD {
         String[] values = question.split(" ");
         int number1 = Integer.parseInt(values[0]);
         int number2 = Integer.parseInt(values[1]);
-        int temp, nod = 1;
-        if (number1 > number2) temp = number2;
-        else temp = number1;
+        int temp;
+        int nod = 1;
+        if (number1 > number2) {
+            temp = number2;
+        }
+        else {
+            temp = number1;
+        }
         for (int i = temp; i > 0; i -= 1) {
             if (number1 % i == 0 && number2 % i == 0) {
                 nod = i;

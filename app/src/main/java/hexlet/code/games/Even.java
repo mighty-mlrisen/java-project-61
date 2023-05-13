@@ -10,13 +10,18 @@ public class Even {
     }
 
     public static String generateEvenQuestion() {
-        int number = RandomUtils.nextInt(0, 1000);
+        int maxNumber = 1000;
+        int number = RandomUtils.nextInt(0, maxNumber);
         return Integer.toString(number);
     }
 
     public static String getEvenCorrectAnswer(String question) {
         int number = Integer.parseInt(question);
-        if (number % 2 == 0) return "yes";
-        else return "no";
+        if (number % 2 == 0) {
+            return "yes";
+        }
+        else {
+            return "no";
+        }
     }
 }

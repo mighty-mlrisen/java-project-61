@@ -13,14 +13,13 @@ public class Engine {
         int gameNumber = App.gameSelection();
         if (gameNumber == 0 || gameNumber == 1) {
             return;
-        }
-        else {
+        } else {
             launchGeneralStructure(gameNumber);
         }
     }
     private static void launchGeneralStructure(int gameNumber) {
-        int countCorrectAnswer = 0;
-        for (int i = 0; i < 3; i++) {
+        int countCorrectAnswer = 0, numberOfQuestions = 3;
+        for (int i = 0; i < numberOfQuestions; i++) {
             String correctAnswer = Engine.getCorrectAnswer(gameNumber);
             String userAnswer = Engine.getUserAnswer();
             if (correctAnswer.equals(userAnswer)) {
@@ -42,14 +41,16 @@ public class Engine {
     }
 
     private  static void checkNumberOfCorrectAnswers(int countCorrectAnswer) {
-        if (countCorrectAnswer == 3) {
-            System.out.println("Congratulations, " + Cli.name + "!");
+        int maxNumberOfCorrectAnswers = 3;
+        if (countCorrectAnswer == maxNumberOfCorrectAnswers) {
+            System.out.println("Congratulations, " + Cli.getName() + "!");
         }
     }
 
     private static void getWrongAnswer(String userAnswer, String correctAnswer) {
-        System.out.println("'" + userAnswer + "' " + "is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'" + ".");
-        System.out.println("Let's try again, " + Cli.name + "!");
+        System.out.print("'" + userAnswer + "' " + "is wrong answer ;(. Correct answer was ");
+        System.out.println("'" + correctAnswer + "'" + ".");
+        System.out.println("Let's try again, " + Cli.getName() + "!");
     }
 
     private static String getUserAnswer() {
@@ -74,13 +75,17 @@ public class Engine {
 
     private static String generateQuestionByNumber(int gameNumber) {
         String question = "";
-        if (gameNumber == 2) {
+        int gameNumberEven = 2;
+        int gameNumberCalc = 3;
+        int gameNumberGCD = 4;
+        int gameNumberProgression = 5;
+        if (gameNumber == gameNumberEven) {
             question = Even.generateEvenQuestion();
-        } else if(gameNumber == 3) {
+        } else if (gameNumber == gameNumberCalc) {
             question = Calc.generateCalcQuestion();
-        } else if(gameNumber == 4) {
+        } else if (gameNumber == gameNumberGCD) {
             question = GCD.generateGCDQuestion();
-        } else if(gameNumber == 5) {
+        } else if (gameNumber == gameNumberProgression) {
             question = Progression.generateProgressionQuestion();
         } else {
             question = Prime.generatePrimeQuestion();
@@ -90,13 +95,17 @@ public class Engine {
 
     private static String getCorrectAnswerByNumber(int gameNumber, String question2) {
         String correctAnswer = "";
-        if (gameNumber == 2) {
+        int gameNumberEven = 2;
+        int gameNumberCalc = 3;
+        int gameNumberGCD = 4;
+        int gameNumberProgression = 5;
+        if (gameNumber == gameNumberEven) {
             correctAnswer = Even.getEvenCorrectAnswer(question2);
-        } else if(gameNumber == 3) {
+        } else if (gameNumber == gameNumberCalc) {
             correctAnswer = Calc.getCalcCorrectAnswer(question2);
-        } else if(gameNumber == 4) {
+        } else if (gameNumber == gameNumberGCD) {
             correctAnswer = GCD.getGCDCorrectAnswer(question2);
-        } else if(gameNumber == 5) {
+        } else if (gameNumber == gameNumberProgression) {
             correctAnswer = Progression.getProgressionCorrectAnswer(question2);
         } else {
             correctAnswer = Prime.getPrimeCorrectAnswer(question2);
