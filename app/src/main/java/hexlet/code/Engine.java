@@ -26,9 +26,7 @@ public class Engine {
             if (correctAnswer.equals(userAnswer)) {
                 System.out.println("Correct!");
                 countCorrectAnswer += 1;
-                if (countCorrectAnswer == 3) {
-                    System.out.println("Congratulations, " + Cli.name + "!");
-                }
+                Engine.checkNumberOfCorrectAnswers(countCorrectAnswer);
             } else {
                 Engine.getWrongAnswer(userAnswer, correctAnswer);
                 break;
@@ -43,6 +41,11 @@ public class Engine {
         return correctAnswer;
     }
 
+    private  static void checkNumberOfCorrectAnswers(int countCorrectAnswer) {
+        if (countCorrectAnswer == 3) {
+            System.out.println("Congratulations, " + Cli.name + "!");
+        }
+    }
 
     private static void getWrongAnswer(String userAnswer, String correctAnswer) {
         System.out.println("'" + userAnswer + "' " + "is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'" + ".");
