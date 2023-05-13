@@ -10,7 +10,8 @@ public class Calc {
     }
 
     public static String generateCalcQuestion() {
-        int maxNumber = 20, maxIndex = 3;
+        int maxNumber = 20;
+        int maxIndex = 3;
         int number1 = RandomUtils.nextInt(0, maxNumber);
         int number2 = RandomUtils.nextInt(0, maxNumber);
         int index = RandomUtils.nextInt(0, maxIndex);

@@ -32,7 +32,7 @@ public class Progression {
     public static String getProgressionCorrectAnswer(String question) {
         String[] values = question.split(" ");
         int index = 0;
-        int missingNumber;;
+        int missingNumber;
         for (int i = 0; i < values.length; i++) {
             if (values[i].equals("..")) {
                 index = i;

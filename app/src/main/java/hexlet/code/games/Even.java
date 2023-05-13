@@ -19,8 +19,7 @@ public class Even {
         int number = Integer.parseInt(question);
         if (number % 2 == 0) {
             return "yes";
-        }
-        else {
+        } else {
             return "no";
         }
     }

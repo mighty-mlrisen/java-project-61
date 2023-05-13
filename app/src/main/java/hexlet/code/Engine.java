@@ -18,7 +18,8 @@ public class Engine {
         }
     }
     private static void launchGeneralStructure(int gameNumber) {
-        int countCorrectAnswer = 0, numberOfQuestions = 3;
+        int countCorrectAnswer = 0;
+        int numberOfQuestions = 3;
         for (int i = 0; i < numberOfQuestions; i++) {
             String correctAnswer = Engine.getCorrectAnswer(gameNumber);
             String userAnswer = Engine.getUserAnswer();

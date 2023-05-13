@@ -25,8 +25,7 @@ public class GCD {
         int nod = 1;
         if (number1 > number2) {
             temp = number2;
-        }
-        else {
+        } else {
             temp = number1;
         }
         for (int i = temp; i > 0; i -= 1) {

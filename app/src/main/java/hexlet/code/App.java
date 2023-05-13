@@ -19,7 +19,10 @@ public class App {
     public static int gameSelection() {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
-        final int gameNumberEven = 2, gameNumberCalc = 3, gameNumberGCD = 4, gameNumberProgression = 5;
+        final int gameNumberEven = 2;
+        final int gameNumberCalc = 3;
+        final int gameNumberGCD = 4;
+        final int gameNumberProgression = 5;
         final int gameNumberPrime = 6;
         switch (number) {
             case 0:
