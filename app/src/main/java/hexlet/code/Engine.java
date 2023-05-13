@@ -64,38 +64,44 @@ public class Engine {
     public static String questionSelection(int gameNumber, int index, String question2) {
         String question = "";
         String correctAnswer = "";
-        if (gameNumber == 2) {
-            if (index == 1) {
-                question = Even.generateEvenQuestion();
-            } else {
-                correctAnswer = Even.getEvenCorrectAnswer(question2);
-            }
-        } else if (gameNumber == 3) {
-            if (index == 1) {
-                question = Calc.generateCalcQuestion();
-            } else {
-                correctAnswer = Calc.getCalcCorrectAnswer(question2);
-            }
-        } else if (gameNumber == 4) {
-            if (index == 1) {
-                question = GCD.generateGCDQuestion();
-            } else {
-                correctAnswer = GCD.getGCDCorrectAnswer(question2);
-            }
-        } else if (gameNumber == 5) {
-            if (index == 1) {
-                question = Progression.generateProgressionQuestion();
-            } else {
-                correctAnswer = Progression.getProgressionCorrectAnswer(question2);
-            }
-        } else if (gameNumber == 6) {
-            if (index == 1) {
-                question = Prime.generatePrimeQuestion();
-            } else {
-                correctAnswer = Prime.getPrimeCorrectAnswer(question2);
-            }
+        if (index == 1) {
+            question = Engine.generateQuestionByNumber(gameNumber);
+        } else {
+            correctAnswer = Engine.getCorrectAnswerByNumber(gameNumber, question2);
         }
         return getSelectedContent(index, question, correctAnswer);
+    }
+
+    private static String generateQuestionByNumber(int gameNumber) {
+        String question = "";
+        if (gameNumber == 2) {
+            question = Even.generateEvenQuestion();
+        } else if(gameNumber == 3) {
+            question = Calc.generateCalcQuestion();
+        } else if(gameNumber == 4) {
+            question = GCD.generateGCDQuestion();
+        } else if(gameNumber == 5) {
+            question = Progression.generateProgressionQuestion();
+        } else {
+            question = Prime.generatePrimeQuestion();
+        }
+        return question;
+    }
+
+    private static String getCorrectAnswerByNumber(int gameNumber, String question2) {
+        String correctAnswer = "";
+        if (gameNumber == 2) {
+            correctAnswer = Even.getEvenCorrectAnswer(question2);
+        } else if(gameNumber == 3) {
+            correctAnswer = Calc.getCalcCorrectAnswer(question2);
+        } else if(gameNumber == 4) {
+            correctAnswer = GCD.getGCDCorrectAnswer(question2);
+        } else if(gameNumber == 5) {
+            correctAnswer = Progression.getProgressionCorrectAnswer(question2);
+        } else {
+            correctAnswer = Prime.getPrimeCorrectAnswer(question2);
+        }
+        return correctAnswer;
     }
 
     private static String getSelectedContent(int index, String question, String correctAnswer) {
