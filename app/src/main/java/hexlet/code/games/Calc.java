@@ -10,12 +10,13 @@ public class Calc {
     }
 
     public static String generateCalcQuestion() {
-        int maxNumber = 20;
         int maxIndex = 3;
-        int minNumber = 0;
-        int number1 = RandomUtils.nextInt(minNumber, maxNumber);
-        int number2 = RandomUtils.nextInt(minNumber, maxNumber);
-        int index = RandomUtils.nextInt(minNumber, maxIndex);
+        int endOfRange = 20;
+        int beginningOfRange = 0;
+
+        int number1 = RandomUtils.nextInt(beginningOfRange, endOfRange);
+        int number2 = RandomUtils.nextInt(beginningOfRange, endOfRange);
+        int index = RandomUtils.nextInt(beginningOfRange, maxIndex);
         String[] operations = {"+", "*", "-"};
         String result = number1 + " " + operations[index] + " " + number2;
         return result;
