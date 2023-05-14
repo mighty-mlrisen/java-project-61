@@ -14,9 +14,11 @@ public class Progression {
         final int maxNumber = 16;
         final int maxProgressionDifferences = 10;
         final int maxIndex = 10;
+        final int countNumbers = 10;
+
         int number1 = RandomUtils.nextInt(1, maxNumber);
         int progressionDifferences = RandomUtils.nextInt(1, maxProgressionDifferences);
-        String[] values = new String[10];
+        String[] values = new String[countNumbers];
         values[0] = Integer.toString(number1);
         int number = number1;
         for (int i = 1; i < values.length; i++) {
@@ -38,7 +40,7 @@ public class Progression {
                 index = i;
             }
         }
-        int movingToPrevPrevIndex = 2;
+        final int movingToPrevPrevIndex = 2;
         if (index - movingToPrevPrevIndex >= 0) {
             missingNumber = calculateMissingNumber(values, index, -1, -2);
         } else {
