@@ -12,7 +12,6 @@ public class App {
     private static final int GAME_NUMBER_CALC = 3;
     private static final int GAME_NUMBER_GCD = 4;
     private static final int GAME_NUMBER_PROGRESSION = 5;
-    private static final int GAME_NUMBER_PRIME = 6;
 
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
@@ -25,29 +24,20 @@ public class App {
     public static int gameSelection() {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
-        switch (number) {
-            case 0:
-                break;
-            case 1:
-                Cli.greeting();
-                break;
-            case GAME_NUMBER_EVEN:
-                Even.startingGame();
-                break;
-            case GAME_NUMBER_CALC:
-                Calc.startingGame();
-                break;
-            case GAME_NUMBER_GCD:
-                GCD.startingGame();
-                break;
-            case GAME_NUMBER_PROGRESSION:
-                Progression.startingGame();
-                break;
-            case GAME_NUMBER_PRIME:
-                Prime.startingGame();
-                break;
-            default:
-                return 0;
+        if (number == 0) {
+            return number;
+        } else if (number == 1) {
+            Cli.greeting();
+        } else if (number == GAME_NUMBER_EVEN) {
+            Even.startingGame();
+        } else if (number == GAME_NUMBER_CALC) {
+            Calc.startingGame();
+        } else if (number == GAME_NUMBER_GCD) {
+            GCD.startingGame();
+        } else if (number == GAME_NUMBER_PROGRESSION) {
+            Progression.startingGame();
+        } else {
+            Prime.startingGame();
         }
         return number;
     }
