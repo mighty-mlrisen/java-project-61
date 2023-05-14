@@ -10,7 +10,7 @@ public class Even {
     }
 
     public static String generateEvenQuestion() {
-        int maxNumber = 1000;
+        final int maxNumber = 1000;
         int number = RandomUtils.nextInt(0, maxNumber);
         return Integer.toString(number);
     }

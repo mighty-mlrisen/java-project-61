@@ -11,7 +11,7 @@ public class GCD {
     }
 
     public static String generateGCDQuestion() {
-        int maxNumber = 101;
+        final int maxNumber = 101;
         int number1 = RandomUtils.nextInt(1, maxNumber);
         int number2 = RandomUtils.nextInt(1, maxNumber);
         return Integer.toString(number1) + " " + Integer.toString(number2);

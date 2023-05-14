@@ -10,7 +10,7 @@ public class Prime {
     }
 
     public static String generatePrimeQuestion() {
-        int maxNumber = 100;
+        final int maxNumber = 100;
         int number = RandomUtils.nextInt(1, maxNumber);
         return Integer.toString(number);
     }

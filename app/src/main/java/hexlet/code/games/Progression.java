@@ -11,9 +11,9 @@ public class Progression {
     }
 
     public static String generateProgressionQuestion() {
-        int maxNumber = 16;
-        int maxProgressionDifferences = 10;
-        int maxIndex = 10;
+        final int maxNumber = 16;
+        final int maxProgressionDifferences = 10;
+        final int maxIndex = 10;
         int number1 = RandomUtils.nextInt(1, maxNumber);
         int progressionDifferences = RandomUtils.nextInt(1, maxProgressionDifferences);
         String[] values = new String[10];

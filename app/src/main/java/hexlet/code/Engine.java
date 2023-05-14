@@ -19,7 +19,7 @@ public class Engine {
     }
     private static void launchGeneralStructure(int gameNumber) {
         int countCorrectAnswer = 0;
-        int numberOfQuestions = 3;
+        final int numberOfQuestions = 3;
         for (int i = 0; i < numberOfQuestions; i++) {
             String correctAnswer = Engine.getCorrectAnswer(gameNumber);
             String userAnswer = Engine.getUserAnswer();
@@ -42,7 +42,7 @@ public class Engine {
     }
 
     private  static void checkNumberOfCorrectAnswers(int countCorrectAnswer) {
-        int maxNumberOfCorrectAnswers = 3;
+        final int maxNumberOfCorrectAnswers = 3;
         if (countCorrectAnswer == maxNumberOfCorrectAnswers) {
             System.out.println("Congratulations, " + Cli.getName() + "!");
         }
@@ -76,10 +76,10 @@ public class Engine {
 
     private static String generateQuestionByNumber(int gameNumber) {
         String question = "";
-        int gameNumberEven = 2;
-        int gameNumberCalc = 3;
-        int gameNumberGCD = 4;
-        int gameNumberProgression = 5;
+        final int gameNumberEven = 2;
+        final int gameNumberCalc = 3;
+        final int gameNumberGCD = 4;
+        final int gameNumberProgression = 5;
         if (gameNumber == gameNumberEven) {
             question = Even.generateEvenQuestion();
         } else if (gameNumber == gameNumberCalc) {
@@ -96,10 +96,10 @@ public class Engine {
 
     private static String getCorrectAnswerByNumber(int gameNumber, String question2) {
         String correctAnswer = "";
-        int gameNumberEven = 2;
-        int gameNumberCalc = 3;
-        int gameNumberGCD = 4;
-        int gameNumberProgression = 5;
+        final int gameNumberEven = 2;
+        final int gameNumberCalc = 3;
+        final int gameNumberGCD = 4;
+        final int gameNumberProgression = 5;
         if (gameNumber == gameNumberEven) {
             correctAnswer = Even.getEvenCorrectAnswer(question2);
         } else if (gameNumber == gameNumberCalc) {
