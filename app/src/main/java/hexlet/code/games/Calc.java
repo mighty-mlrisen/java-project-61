@@ -10,9 +10,9 @@ public class Calc {
     }
 
     public static String generateCalcQuestion() {
-        int maxIndex = 3;
-        int endOfRange = 20;
-        int beginningOfRange = 0;
+        final int maxIndex = 3;
+        final int endOfRange = 20;
+        final int beginningOfRange = 0;
 
         int number1 = RandomUtils.nextInt(beginningOfRange, endOfRange);
         int number2 = RandomUtils.nextInt(beginningOfRange, endOfRange);
