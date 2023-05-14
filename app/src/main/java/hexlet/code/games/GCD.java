@@ -21,13 +21,8 @@ public class GCD {
         String[] values = question.split(" ");
         int number1 = Integer.parseInt(values[0]);
         int number2 = Integer.parseInt(values[1]);
-        int temp;
+        int temp = GCD.getMinOfNumbers(number1, number2);
         int nod = 1;
-        if (number1 > number2) {
-            temp = number2;
-        } else {
-            temp = number1;
-        }
         for (int i = temp; i > 0; i -= 1) {
             if (number1 % i == 0 && number2 % i == 0) {
                 nod = i;
@@ -35,5 +30,15 @@ public class GCD {
             }
         }
         return Integer.toString(nod);
+    }
+
+    private static int getMinOfNumbers(int number1, int number2) {
+        int temp;
+        if (number1 > number2) {
+            temp = number2;
+        } else {
+            temp = number1;
+        }
+        return temp;
     }
 }

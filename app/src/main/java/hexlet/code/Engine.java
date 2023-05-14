@@ -8,6 +8,10 @@ import hexlet.code.games.Calc;
 import java.util.Scanner;
 
 public class Engine {
+    private static final int GAME_NUMBER_EVEN = 2;
+    private static final int GAME_NUMBER_CALC = 3;
+    private static final int GAME_NUMBER_GCD = 4;
+    private static final int GAME_NUMBER_PROGRESSION = 5;
 
     public static void playGame() {
         int gameNumber = App.gameSelection();
@@ -76,17 +80,13 @@ public class Engine {
 
     private static String generateQuestionByNumber(int gameNumber) {
         String question = "";
-        final int gameNumberEven = 2;
-        final int gameNumberCalc = 3;
-        final int gameNumberGCD = 4;
-        final int gameNumberProgression = 5;
-        if (gameNumber == gameNumberEven) {
+        if (gameNumber == GAME_NUMBER_EVEN) {
             question = Even.generateEvenQuestion();
-        } else if (gameNumber == gameNumberCalc) {
+        } else if (gameNumber == GAME_NUMBER_CALC) {
             question = Calc.generateCalcQuestion();
-        } else if (gameNumber == gameNumberGCD) {
+        } else if (gameNumber == GAME_NUMBER_GCD) {
             question = GCD.generateGCDQuestion();
-        } else if (gameNumber == gameNumberProgression) {
+        } else if (gameNumber == GAME_NUMBER_PROGRESSION) {
             question = Progression.generateProgressionQuestion();
         } else {
             question = Prime.generatePrimeQuestion();
@@ -96,17 +96,13 @@ public class Engine {
 
     private static String getCorrectAnswerByNumber(int gameNumber, String question2) {
         String correctAnswer = "";
-        final int gameNumberEven = 2;
-        final int gameNumberCalc = 3;
-        final int gameNumberGCD = 4;
-        final int gameNumberProgression = 5;
-        if (gameNumber == gameNumberEven) {
+        if (gameNumber == GAME_NUMBER_EVEN) {
             correctAnswer = Even.getEvenCorrectAnswer(question2);
-        } else if (gameNumber == gameNumberCalc) {
+        } else if (gameNumber == GAME_NUMBER_CALC) {
             correctAnswer = Calc.getCalcCorrectAnswer(question2);
-        } else if (gameNumber == gameNumberGCD) {
+        } else if (gameNumber == GAME_NUMBER_GCD) {
             correctAnswer = GCD.getGCDCorrectAnswer(question2);
-        } else if (gameNumber == gameNumberProgression) {
+        } else if (gameNumber == GAME_NUMBER_PROGRESSION) {
             correctAnswer = Progression.getProgressionCorrectAnswer(question2);
         } else {
             correctAnswer = Prime.getPrimeCorrectAnswer(question2);

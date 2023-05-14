@@ -4,6 +4,14 @@ import hexlet.code.Engine;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Progression {
+    private static final int MAX_NUMBER = 16;
+    private static final int MAX_PROGRESSION_DIFFERENCES = 10;
+    private static final int MAX_INDEX = 10;
+    private static final int COUNT_NUMBERS = 10;
+    private static final int MOVING_TO_PREV_PREV_INDEX = 2;
+    private static final int PREV_INDEX = 1;
+    private static final int PREV_PREV_INDEX = 2;
+
 
     public static void startingGame() {
         Engine.launchGreeting();
@@ -11,21 +19,16 @@ public class Progression {
     }
 
     public static String generateProgressionQuestion() {
-        final int maxNumber = 16;
-        final int maxProgressionDifferences = 10;
-        final int maxIndex = 10;
-        final int countNumbers = 10;
-
-        int number1 = RandomUtils.nextInt(1, maxNumber);
-        int progressionDifferences = RandomUtils.nextInt(1, maxProgressionDifferences);
-        String[] values = new String[countNumbers];
+        int number1 = RandomUtils.nextInt(1, MAX_NUMBER);
+        int progressionDifferences = RandomUtils.nextInt(1, MAX_PROGRESSION_DIFFERENCES);
+        String[] values = new String[COUNT_NUMBERS];
         values[0] = Integer.toString(number1);
         int number = number1;
         for (int i = 1; i < values.length; i++) {
             number += progressionDifferences;
             values[i] = Integer.toString(number);
         }
-        int index = RandomUtils.nextInt(0, maxIndex);
+        int index = RandomUtils.nextInt(0, MAX_INDEX);
         values[index] = "..";
         String progression = String.join(" ", values);
         return progression;
@@ -40,9 +43,8 @@ public class Progression {
                 index = i;
             }
         }
-        final int movingToPrevPrevIndex = 2;
-        if (index - movingToPrevPrevIndex >= 0) {
-            missingNumber = calculateMissingNumber(values, index, -1, -2);
+        if (index - MOVING_TO_PREV_PREV_INDEX >= 0) {
+            missingNumber = calculateMissingNumber(values, index, -PREV_INDEX, -PREV_PREV_INDEX);
         } else {
             missingNumber = calculateMissingNumber(values, index, +1, +2);
         }
