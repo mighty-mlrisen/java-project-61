@@ -1,10 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Calc;
 import java.util.Scanner;
 
 public class Engine {
@@ -14,7 +9,7 @@ public class Engine {
         String correctAnswer = values[1];
         System.out.print("Question: " + question + "\n" + "Your answer: ");
         String userAnswer = Engine.getUserAnswer();
-        if (userAnswer.equals(correctAnswer)){
+        if (userAnswer.equals(correctAnswer)) {
             System.out.println("Correct!");
             Engine.checkNumberOfCorrectAnswers(index);
             return true;

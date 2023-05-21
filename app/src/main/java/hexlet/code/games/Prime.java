@@ -13,10 +13,10 @@ public class Prime {
     public static void playPrimeGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String question = Prime.generatePrimeQuestion();
-            String correctAnswer = Prime.getPrimeCorrectAnswer(question);
-            String [] values = {question, correctAnswer};
-            if (Engine.launchGeneralStructure(values, i) == false) {
+            String questionPrime = Prime.generatePrimeQuestion();
+            String correctAnswerPrime = Prime.getPrimeCorrectAnswer(questionPrime);
+            String[] values = {questionPrime, correctAnswerPrime};
+            if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }

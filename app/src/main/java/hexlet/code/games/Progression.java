@@ -22,10 +22,10 @@ public class Progression {
     public static void playProgressionGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String question = Progression.generateProgressionQuestion();
-            String correctAnswer = Progression.getProgressionCorrectAnswer(question);
-            String [] values = {question, correctAnswer};
-            if (Engine.launchGeneralStructure(values, i) == false) {
+            String questionProgression = Progression.generateProgressionQuestion();
+            String correctAnswerProgression = Progression.getProgressionCorrectAnswer(questionProgression);
+            String[] values = {questionProgression, correctAnswerProgression};
+            if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }

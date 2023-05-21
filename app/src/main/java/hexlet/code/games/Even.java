@@ -13,10 +13,10 @@ public class Even {
     public static void playEvenGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String question = Even.generateEvenQuestion();
-            String correctAnswer = Even.getEvenCorrectAnswer(question);
-            String [] values = {question, correctAnswer};
-            if (Engine.launchGeneralStructure(values, i) == false) {
+            String questionEven = Even.generateEvenQuestion();
+            String correctAnswerEven = Even.getEvenCorrectAnswer(questionEven);
+            String[] values = {questionEven, correctAnswerEven};
+            if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }

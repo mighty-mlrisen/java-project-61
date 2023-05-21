@@ -14,10 +14,10 @@ public class GCD {
     public static void playGCDGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String question = GCD.generateGCDQuestion();
-            String correctAnswer = GCD.getGCDCorrectAnswer(question);
-            String [] values = {question, correctAnswer};
-            if (Engine.launchGeneralStructure(values, i) == false) {
+            String questionGCD = GCD.generateGCDQuestion();
+            String correctAnswerGCD = GCD.getGCDCorrectAnswer(questionGCD);
+            String[] values = {questionGCD, correctAnswerGCD};
+            if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }
