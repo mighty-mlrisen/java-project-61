@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static boolean launchGeneralStructure(String [] values, int index) {
+    public static boolean launchGeneralStructure(String[] values, int index) {
         String question = values[0];
         String correctAnswer = values[1];
         System.out.print("Question: " + question + "\n" + "Your answer: ");

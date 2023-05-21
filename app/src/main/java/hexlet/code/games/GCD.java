@@ -14,20 +14,21 @@ public class GCD {
     public static void playGCDGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String questionGCD = GCD.generateGCDQuestion();
-            String correctAnswerGCD = GCD.getGCDCorrectAnswer(questionGCD);
-            String[] values = {questionGCD, correctAnswerGCD};
+            String[] values = GCD.generateGCDQuestion();
             if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }
     }
 
-    public static String generateGCDQuestion() {
+    public static String[] generateGCDQuestion() {
         final int maxNumber = 101;
         int number1 = RandomUtils.nextInt(1, maxNumber);
         int number2 = RandomUtils.nextInt(1, maxNumber);
-        return Integer.toString(number1) + " " + Integer.toString(number2);
+        String question = Integer.toString(number1) + " " + Integer.toString(number2);
+        String correctAnswer = GCD.getGCDCorrectAnswer(question);
+        String[] set = {question, correctAnswer};
+        return set;
     }
 
     public static String getGCDCorrectAnswer(String question) {

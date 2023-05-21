@@ -13,19 +13,20 @@ public class Prime {
     public static void playPrimeGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String questionPrime = Prime.generatePrimeQuestion();
-            String correctAnswerPrime = Prime.getPrimeCorrectAnswer(questionPrime);
-            String[] values = {questionPrime, correctAnswerPrime};
+            String[] values = Prime.generatePrimeQuestion();
             if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }
     }
 
-    public static String generatePrimeQuestion() {
+    public static String[] generatePrimeQuestion() {
         final int maxNumber = 100;
         int number = RandomUtils.nextInt(1, maxNumber);
-        return Integer.toString(number);
+        String question = Integer.toString(number);
+        String correctAnswer = Prime.getPrimeCorrectAnswer(question);
+        String[] set = {question, correctAnswer};
+        return set;
     }
 
     public static String getPrimeCorrectAnswer(String question) {

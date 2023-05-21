@@ -22,16 +22,14 @@ public class Progression {
     public static void playProgressionGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String questionProgression = Progression.generateProgressionQuestion();
-            String correctAnswerProgression = Progression.getProgressionCorrectAnswer(questionProgression);
-            String[] values = {questionProgression, correctAnswerProgression};
+            String[] values = Progression.generateProgressionQuestion();
             if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }
     }
 
-    public static String generateProgressionQuestion() {
+    public static String[] generateProgressionQuestion() {
         int number1 = RandomUtils.nextInt(1, MAX_NUMBER);
         int progressionDifferences = RandomUtils.nextInt(1, MAX_PROGRESSION_DIFFERENCES);
         String[] values = new String[COUNT_NUMBERS];
@@ -43,8 +41,10 @@ public class Progression {
         }
         int index = RandomUtils.nextInt(0, MAX_INDEX);
         values[index] = "..";
-        String progression = String.join(" ", values);
-        return progression;
+        String question = String.join(" ", values);
+        String correctAnswer = Progression.getProgressionCorrectAnswer(question);
+        String[] set = {question, correctAnswer};
+        return set;
     }
 
     public static String getProgressionCorrectAnswer(String question) {
