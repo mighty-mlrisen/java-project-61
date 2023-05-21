@@ -25,8 +25,7 @@ public class Prime {
     public static String generatePrimeQuestion() {
         final int maxNumber = 100;
         int number = RandomUtils.nextInt(1, maxNumber);
-        String question = Integer.toString(number);
-        return question;
+        return Integer.toString(number);
     }
 
     public static String getPrimeCorrectAnswer(String question) {

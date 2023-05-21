@@ -25,8 +25,7 @@ public class Even {
     public static String generateEvenQuestion() {
         final int maxNumber = 1000;
         int number = RandomUtils.nextInt(0, maxNumber);
-        String question = Integer.toString(number);
-        return question;
+        return Integer.toString(number);
     }
 
     public static String getEvenCorrectAnswer(String question) {
