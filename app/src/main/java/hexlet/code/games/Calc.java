@@ -7,6 +7,19 @@ public class Calc {
     public static void startingGame() {
         Engine.launchGreeting();
         System.out.println("What is the result of the expression?");
+        Calc.playCalcGame();
+    }
+
+    public static void playCalcGame() {
+        final int numberOfQuestions = 3;
+        for (int i = 1; i < numberOfQuestions + 1; i++) {
+            String question = Calc.generateCalcQuestion();
+            String correctAnswer = Calc.getCalcCorrectAnswer(question);
+            String [] values = {question, correctAnswer};
+            if (Engine.launchGeneralStructure(values, i) == false) {
+                break;
+            }
+        }
     }
 
     public static String generateCalcQuestion() {

@@ -8,6 +8,19 @@ public class GCD {
     public static void startingGame() {
         Engine.launchGreeting();
         System.out.println("Find the greatest common divisor of given numbers.");
+        GCD.playGCDGame();
+    }
+
+    public static void playGCDGame() {
+        final int numberOfQuestions = 3;
+        for (int i = 1; i < numberOfQuestions + 1; i++) {
+            String question = GCD.generateGCDQuestion();
+            String correctAnswer = GCD.getGCDCorrectAnswer(question);
+            String [] values = {question, correctAnswer};
+            if (Engine.launchGeneralStructure(values, i) == false) {
+                break;
+            }
+        }
     }
 
     public static String generateGCDQuestion() {

@@ -18,14 +18,14 @@ public class App {
         System.out.println("1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD");
         System.out.println("5 - Progression\n" + "6 - Prime\n" + "0 - Exit");
         System.out.print("Your choice: ");
-        Engine.playGame();
+        App.gameSelection();
     }
 
-    public static int gameSelection() {
+    public static void gameSelection() {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         if (number == 0) {
-            return number;
+            return;
         } else if (number == 1) {
             Cli.greeting();
         } else if (number == GAME_NUMBER_EVEN) {
@@ -39,6 +39,5 @@ public class App {
         } else {
             Prime.startingGame();
         }
-        return number;
     }
 }

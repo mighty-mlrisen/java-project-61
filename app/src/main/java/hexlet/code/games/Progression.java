@@ -16,6 +16,19 @@ public class Progression {
     public static void startingGame() {
         Engine.launchGreeting();
         System.out.println("What number is missing in the progression?");
+        Progression.playProgressionGame();
+    }
+
+    public static void playProgressionGame() {
+        final int numberOfQuestions = 3;
+        for (int i = 1; i < numberOfQuestions + 1; i++) {
+            String question = Progression.generateProgressionQuestion();
+            String correctAnswer = Progression.getProgressionCorrectAnswer(question);
+            String [] values = {question, correctAnswer};
+            if (Engine.launchGeneralStructure(values, i) == false) {
+                break;
+            }
+        }
     }
 
     public static String generateProgressionQuestion() {

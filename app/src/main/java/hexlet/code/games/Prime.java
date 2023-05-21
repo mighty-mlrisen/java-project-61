@@ -7,6 +7,19 @@ public class Prime {
     public static void startingGame() {
         Engine.launchGreeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        Prime.playPrimeGame();
+    }
+
+    public static void playPrimeGame() {
+        final int numberOfQuestions = 3;
+        for (int i = 1; i < numberOfQuestions + 1; i++) {
+            String question = Prime.generatePrimeQuestion();
+            String correctAnswer = Prime.getPrimeCorrectAnswer(question);
+            String [] values = {question, correctAnswer};
+            if (Engine.launchGeneralStructure(values, i) == false) {
+                break;
+            }
+        }
     }
 
     public static String generatePrimeQuestion() {
