@@ -13,20 +13,20 @@ public class Even {
     public static void playEvenGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String[] values = Even.generateEvenQuestion();
+            String question = Even.generateEvenQuestion();
+            String correctAnswer = Even.getEvenCorrectAnswer(question);
+            String[] values = {question, correctAnswer};
             if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }
     }
 
-    public static String[] generateEvenQuestion() {
+    public static String generateEvenQuestion() {
         final int maxNumber = 1000;
         int number = RandomUtils.nextInt(0, maxNumber);
         String question = Integer.toString(number);
-        String correctAnswer = Even.getEvenCorrectAnswer(question);
-        String[] set = {question, correctAnswer};
-        return set;
+        return question;
     }
 
     public static String getEvenCorrectAnswer(String question) {

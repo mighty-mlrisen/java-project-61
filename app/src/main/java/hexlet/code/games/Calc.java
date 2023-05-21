@@ -13,14 +13,16 @@ public class Calc {
     public static void playCalcGame() {
         final int numberOfQuestions = 3;
         for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String[] values = Calc.generateCalcQuestion();
+            String question = Calc.generateCalcQuestion();
+            String correctAnswer = Calc.getCalcCorrectAnswer(question);
+            String[] values = {question, correctAnswer};
             if (!Engine.launchGeneralStructure(values, i)) {
                 break;
             }
         }
     }
 
-    public static String[] generateCalcQuestion() {
+    public static String generateCalcQuestion() {
         final int maxIndex = 3;
         final int endOfRange = 20;
         final int beginningOfRange = 0;
@@ -30,9 +32,7 @@ public class Calc {
         int index = RandomUtils.nextInt(beginningOfRange, maxIndex);
         String[] operations = {"+", "*", "-"};
         String question = number1 + " " + operations[index] + " " + number2;
-        String correctAnswer = Calc.getCalcCorrectAnswer(question);
-        String[] set = {question, correctAnswer};
-        return set;
+        return question;
     }
 
     public static String getCalcCorrectAnswer(String question) {
