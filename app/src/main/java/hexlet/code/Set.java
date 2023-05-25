@@ -14,17 +14,19 @@ public class Set {
     private static final int GAME_NUMBER_PROGRESSION = 5;
 
     public static String[] checkGame(int gameNumber) {
+        String[] result;
         if (gameNumber == GAME_NUMBER_EVEN) {
-            return Set.generateEvenSet();
+            result = Set.generateEvenSet();
         } else if (gameNumber == GAME_NUMBER_CALC) {
-            return Set.generateCalcSet();
+            result = Set.generateCalcSet();
         } else if (gameNumber == GAME_NUMBER_GCD) {
-            return Set.generateGCDSet();
+            result =  Set.generateGCDSet();
         } else if (gameNumber == GAME_NUMBER_PROGRESSION) {
-            return Set.generateProgressionSet();
+            result =  Set.generateProgressionSet();
         } else {
-            return Set.generatePrimeSet();
+            result =  Set.generatePrimeSet();
         }
+        return result;
     }
 
     public static String[] generateEvenSet() {
