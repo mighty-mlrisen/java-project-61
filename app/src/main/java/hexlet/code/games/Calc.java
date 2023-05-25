@@ -12,7 +12,9 @@ public class Calc {
 
     public static void playCalcGame() {
         final int numberOfQuestions = 3;
-        String[][] values = new String[3][2];
+        final int countOfRounds = 3;
+        final int countOfData = 2;
+        String[][] values = new String[countOfRounds][countOfData];
         for (int i = 0; i < numberOfQuestions; i++) {
             String[] dataOfRound = Calc.generateRoundData();
             values[i][0] = dataOfRound[0];
