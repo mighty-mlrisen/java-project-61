@@ -12,14 +12,20 @@ public class Even {
 
     public static void playEvenGame() {
         final int numberOfQuestions = 3;
-        for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String question = Even.generateEvenQuestion();
-            String correctAnswer = Even.getEvenCorrectAnswer(question);
-            String[] values = {question, correctAnswer};
-            if (!Engine.launchGeneralStructure(values, i)) {
-                break;
-            }
+        String[][] values = new String[3][2];
+        for (int i = 0; i < numberOfQuestions; i++) {
+            String[] dataOfRound = Even.generateRoundData();
+            values[i][0] = dataOfRound[0];
+            values[i][1] = dataOfRound[1];
         }
+        Engine.launchGeneralStructure(values);
+    }
+
+    public static String[] generateRoundData() {
+        String question = Even.generateEvenQuestion();
+        String correctAnswer = Even.getEvenCorrectAnswer(question);
+        String[] data = {question, correctAnswer};
+        return data;
     }
 
     public static String generateEvenQuestion() {

@@ -21,14 +21,20 @@ public class Progression {
 
     public static void playProgressionGame() {
         final int numberOfQuestions = 3;
-        for (int i = 1; i < numberOfQuestions + 1; i++) {
-            String question = Progression.generateProgressionQuestion();
-            String correctAnswer = Progression.getProgressionCorrectAnswer(question);
-            String[] values = {question, correctAnswer};
-            if (!Engine.launchGeneralStructure(values, i)) {
-                break;
-            }
+        String[][] values = new String[3][2];
+        for (int i = 0; i < numberOfQuestions; i++) {
+            String[] dataOfRound = Progression.generateRoundData();
+            values[i][0] = dataOfRound[0];
+            values[i][1] = dataOfRound[1];
         }
+        Engine.launchGeneralStructure(values);
+    }
+
+    public static String[] generateRoundData() {
+        String question = Progression.generateProgressionQuestion();
+        String correctAnswer = Progression.getProgressionCorrectAnswer(question);
+        String[] data = {question, correctAnswer};
+        return data;
     }
 
     public static String generateProgressionQuestion() {
