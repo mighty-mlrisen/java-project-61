@@ -4,18 +4,22 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static boolean launchGeneralStructure(String[] values, int index) {
-        String question = values[0];
-        String correctAnswer = values[1];
-        System.out.print("Question: " + question + "\n" + "Your answer: ");
-        String userAnswer = Engine.getUserAnswer();
-        if (userAnswer.equals(correctAnswer)) {
-            System.out.println("Correct!");
-            Engine.checkNumberOfCorrectAnswers(index);
-            return true;
-        } else {
-            Engine.getWrongAnswer(userAnswer, correctAnswer);
-            return false;
+    public static void launchGeneralStructure(String[][] values) {
+        final int numberOfRounds = 3;
+        int numberOfCorrectAnswers = 0;
+        for (int i = 0; i < numberOfRounds; i++) {
+            String question = values[i][0];
+            String correctAnswer = values[i][1];
+            System.out.print("Question: " + question + "\n" + "Your answer: ");
+            String userAnswer = Engine.getUserAnswer();
+            if (userAnswer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+                numberOfCorrectAnswers += 1;
+                Engine.checkNumberOfCorrectAnswers(numberOfCorrectAnswers);
+            } else {
+                Engine.getWrongAnswer(userAnswer, correctAnswer);
+                break;
+            }
         }
     }
 
