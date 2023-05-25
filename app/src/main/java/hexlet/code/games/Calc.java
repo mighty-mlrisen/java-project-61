@@ -1,33 +1,31 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Set;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Calc {
-    public static void startingGame() {
+    public static void startingGame(int gameNumber) {
         Engine.launchGreeting();
         System.out.println("What is the result of the expression?");
-        Calc.playCalcGame();
+        Calc.playCalcGame(gameNumber);
     }
 
-    public static void playCalcGame() {
+    public static void playCalcGame(int gameNumber) {
         final int numberOfQuestions = 3;
         final int countOfRounds = 3;
         final int countOfData = 2;
         String[][] values = new String[countOfRounds][countOfData];
         for (int i = 0; i < numberOfQuestions; i++) {
-            String[] dataOfRound = Calc.generateRoundData();
+            String[] dataOfRound = Calc.generateRoundData(gameNumber);
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
         Engine.launchGeneralStructure(values);
     }
 
-    public static String[] generateRoundData() {
-        String question = Calc.generateCalcQuestion();
-        String correctAnswer = Calc.getCalcCorrectAnswer(question);
-        String[] data = {question, correctAnswer};
-        return data;
+    public static String[] generateRoundData(int gameNumber) {
+        return Set.checkGame(gameNumber);
     }
 
     public static String generateCalcQuestion() {

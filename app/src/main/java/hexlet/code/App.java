@@ -34,16 +34,16 @@ public class App {
     }
 
     public static void launchGames(int gameNumber) {
-    if (gameNumber == GAME_NUMBER_EVEN) {
-        Even.startingGame();
-    } else if (gameNumber == GAME_NUMBER_CALC) {
-        Calc.startingGame();
-    } else if (gameNumber == GAME_NUMBER_GCD) {
-        GCD.startingGame();
-    } else if (gameNumber == GAME_NUMBER_PROGRESSION) {
-        Progression.startingGame();
-    } else {
-        Prime.startingGame();
-    }
+        if (gameNumber == GAME_NUMBER_EVEN) {
+            Even.startingGame(gameNumber);
+        } else if (gameNumber == GAME_NUMBER_CALC) {
+            Calc.startingGame(gameNumber);
+        } else if (gameNumber == GAME_NUMBER_GCD) {
+            GCD.startingGame(gameNumber);
+        } else if (gameNumber == GAME_NUMBER_PROGRESSION) {
+            Progression.startingGame(gameNumber);
+        } else {
+            Prime.startingGame(gameNumber);
+        }
     }
 }
