@@ -6,6 +6,10 @@ import org.apache.commons.lang3.RandomUtils;
 
 public class GCD {
 
+    private static final int NUMBER_OF_QUESTIONS = 3;
+    private static final int COUNT_OF_ROUNDS = 3;
+    private static final int COUNT_OF_DATA = 2;
+
     public static void startingGame(int gameNumber) {
         Engine.launchGreeting();
         System.out.println("Find the greatest common divisor of given numbers.");
@@ -13,11 +17,8 @@ public class GCD {
     }
 
     public static void playGCDGame(int gameNumber) {
-        final int numberOfQuestions = 3;
-        final int countOfRounds = 3;
-        final int countOfData = 2;
-        String[][] values = new String[countOfRounds][countOfData];
-        for (int i = 0; i < numberOfQuestions; i++) {
+        String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             String[] dataOfRound = GCD.generateRoundData(gameNumber);
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
