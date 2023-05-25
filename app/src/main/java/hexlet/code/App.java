@@ -18,26 +18,32 @@ public class App {
         System.out.println("1 - Greet\n" + "2 - Even\n" + "3 - Calc\n" + "4 - GCD");
         System.out.println("5 - Progression\n" + "6 - Prime\n" + "0 - Exit");
         System.out.print("Your choice: ");
-        App.gameSelection();
+        App.launchSelection();
     }
 
-    public static void gameSelection() {
+    public static void launchSelection() {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         if (number == 0) {
             return;
         } else if (number == 1) {
             Cli.greeting();
-        } else if (number == GAME_NUMBER_EVEN) {
-            Even.startingGame();
-        } else if (number == GAME_NUMBER_CALC) {
-            Calc.startingGame();
-        } else if (number == GAME_NUMBER_GCD) {
-            GCD.startingGame();
-        } else if (number == GAME_NUMBER_PROGRESSION) {
-            Progression.startingGame();
         } else {
-            Prime.startingGame();
+            App.launchGames(number);
         }
+    }
+
+    public static void launchGames(int gameNumber) {
+    if (gameNumber == GAME_NUMBER_EVEN) {
+        Even.startingGame();
+    } else if (gameNumber == GAME_NUMBER_CALC) {
+        Calc.startingGame();
+    } else if (gameNumber == GAME_NUMBER_GCD) {
+        GCD.startingGame();
+    } else if (gameNumber == GAME_NUMBER_PROGRESSION) {
+        Progression.startingGame();
+    } else {
+        Prime.startingGame();
+    }
     }
 }
