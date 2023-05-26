@@ -50,7 +50,7 @@ public class Calc {
         int number2 = Integer.parseInt(array[2]);
         int result;
         String operation = array[1];
-        switch(operation) {
+        switch (operation) {
             case "+":
                 result = number1 + number2;
                 break;
