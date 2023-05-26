@@ -15,16 +15,21 @@ public class Set {
 
     public static String[] checkGame(int gameNumber) {
         String[] result;
-        if (gameNumber == GAME_NUMBER_EVEN) {
-            result = Set.generateEvenSet();
-        } else if (gameNumber == GAME_NUMBER_CALC) {
-            result = Set.generateCalcSet();
-        } else if (gameNumber == GAME_NUMBER_GCD) {
-            result =  Set.generateGCDSet();
-        } else if (gameNumber == GAME_NUMBER_PROGRESSION) {
-            result =  Set.generateProgressionSet();
-        } else {
-            result =  Set.generatePrimeSet();
+        switch (gameNumber) {
+            case GAME_NUMBER_EVEN:
+                result = Set.generateEvenSet();
+                break;
+            case GAME_NUMBER_CALC:
+                result = Set.generateCalcSet();
+                break;
+            case GAME_NUMBER_GCD:
+                result = Set.generateGCDSet();
+                break;
+            case GAME_NUMBER_PROGRESSION:
+                result = Set.generateProgressionSet();
+                break;
+            default:
+                result = Set.generatePrimeSet();
         }
         return result;
     }

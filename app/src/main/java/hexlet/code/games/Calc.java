@@ -49,12 +49,16 @@ public class Calc {
         int number1 = Integer.parseInt(array[0]);
         int number2 = Integer.parseInt(array[2]);
         int result;
-        if (array[1].equals("+")) {
-            result = number1 + number2;
-        } else if (array[1].equals("*")) {
-            result = number1 * number2;
-        } else {
-            result = number1 - number2;
+        String operation = array[1];
+        switch(operation) {
+            case "+":
+                result = number1 + number2;
+                break;
+            case "*":
+                result = number1 * number2;
+                break;
+            default:
+                result = number1 - number2;
         }
         return Integer.toString(result);
     }
