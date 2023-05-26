@@ -4,7 +4,6 @@ import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Set;
 import hexlet.code.Utils;
-import org.apache.commons.lang3.RandomUtils;
 
 public class Calc {
 
@@ -12,8 +11,8 @@ public class Calc {
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
 
-    public static void startingGame(int gameNumber) {
-        String nameOfUser = Cli.greeting();
+    public static void startGame(int gameNumber) {
+        String nameOfUser = Cli.launchGreeting();
         System.out.println("What is the result of the expression?");
         Calc.playCalcGame(gameNumber, nameOfUser);
     }

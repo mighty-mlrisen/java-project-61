@@ -4,7 +4,6 @@ import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Set;
 import hexlet.code.Utils;
-import org.apache.commons.lang3.RandomUtils;
 
 public class Progression {
     private static final int MAX_NUMBER = 16;
@@ -19,8 +18,8 @@ public class Progression {
     private static final int COUNT_OF_DATA = 2;
 
 
-    public static void startingGame(int gameNumber) {
-        String nameOfUser = Cli.greeting();
+    public static void startGame(int gameNumber) {
+        String nameOfUser = Cli.launchGreeting();
         System.out.println("What number is missing in the progression?");
         Progression.playProgressionGame(gameNumber, nameOfUser);
     }

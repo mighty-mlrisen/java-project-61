@@ -27,23 +27,29 @@ public class App {
         if (number == 0) {
             return;
         } else if (number == 1) {
-            Cli.greeting();
+            Cli.launchGreeting();
         } else {
             App.launchGames(number);
         }
     }
 
     public static void launchGames(int gameNumber) {
-        if (gameNumber == GAME_NUMBER_EVEN) {
-            Even.startingGame(gameNumber);
-        } else if (gameNumber == GAME_NUMBER_CALC) {
-            Calc.startingGame(gameNumber);
-        } else if (gameNumber == GAME_NUMBER_GCD) {
-            GCD.startingGame(gameNumber);
-        } else if (gameNumber == GAME_NUMBER_PROGRESSION) {
-            Progression.startingGame(gameNumber);
-        } else {
-            Prime.startingGame(gameNumber);
+        switch (gameNumber) {
+            case GAME_NUMBER_EVEN:
+                Even.startGame(gameNumber);
+                break;
+            case GAME_NUMBER_CALC:
+                Calc.startGame(gameNumber);
+                break;
+            case GAME_NUMBER_GCD:
+                GCD.startGame(gameNumber);
+                break;
+            case GAME_NUMBER_PROGRESSION:
+                Progression.startGame(gameNumber);
+                break;
+            default:
+                Prime.startGame(gameNumber);
+                break;
         }
     }
 }
