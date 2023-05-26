@@ -1,7 +1,9 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Set;
+import hexlet.code.Utils;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Progression {
@@ -18,19 +20,19 @@ public class Progression {
 
 
     public static void startingGame(int gameNumber) {
-        Engine.launchGreeting();
+        String nameOfUser = Cli.greeting();
         System.out.println("What number is missing in the progression?");
-        Progression.playProgressionGame(gameNumber);
+        Progression.playProgressionGame(gameNumber, nameOfUser);
     }
 
-    public static void playProgressionGame(int gameNumber) {
+    public static void playProgressionGame(int gameNumber, String nameOfUser) {
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             String[] dataOfRound = Progression.generateRoundData(gameNumber);
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
-        Engine.launchGeneralStructure(values);
+        Engine.launchGeneralStructure(values, nameOfUser);
     }
 
     public static String[] generateRoundData(int gameNumber) {
@@ -38,8 +40,8 @@ public class Progression {
     }
 
     public static String generateProgressionQuestion() {
-        int number1 = RandomUtils.nextInt(1, MAX_NUMBER);
-        int progressionDifferences = RandomUtils.nextInt(1, MAX_PROGRESSION_DIFFERENCES);
+        int number1 = Utils.generateNumber(1, MAX_NUMBER);
+        int progressionDifferences = Utils.generateNumber(1, MAX_PROGRESSION_DIFFERENCES);
         String[] values = new String[COUNT_NUMBERS];
         values[0] = Integer.toString(number1);
         int number = number1;
@@ -47,7 +49,7 @@ public class Progression {
             number += progressionDifferences;
             values[i] = Integer.toString(number);
         }
-        int index = RandomUtils.nextInt(0, MAX_INDEX);
+        int index = Utils.generateNumber(0, MAX_INDEX);
         values[index] = "..";
         String question = String.join(" ", values);
         return question;

@@ -1,7 +1,9 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Set;
+import hexlet.code.Utils;
 import org.apache.commons.lang3.RandomUtils;
 
 public class Calc {
@@ -11,19 +13,19 @@ public class Calc {
     private static final int COUNT_OF_DATA = 2;
 
     public static void startingGame(int gameNumber) {
-        Engine.launchGreeting();
+        String nameOfUser = Cli.greeting();
         System.out.println("What is the result of the expression?");
-        Calc.playCalcGame(gameNumber);
+        Calc.playCalcGame(gameNumber, nameOfUser);
     }
 
-    public static void playCalcGame(int gameNumber) {
+    public static void playCalcGame(int gameNumber, String nameOfUser) {
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             String[] dataOfRound = Calc.generateRoundData(gameNumber);
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
-        Engine.launchGeneralStructure(values);
+        Engine.launchGeneralStructure(values, nameOfUser);
     }
 
     public static String[] generateRoundData(int gameNumber) {
@@ -35,9 +37,9 @@ public class Calc {
         final int endOfRange = 20;
         final int beginningOfRange = 0;
 
-        int number1 = RandomUtils.nextInt(beginningOfRange, endOfRange);
-        int number2 = RandomUtils.nextInt(beginningOfRange, endOfRange);
-        int index = RandomUtils.nextInt(beginningOfRange, maxIndex);
+        int number1 = Utils.generateNumber(beginningOfRange, endOfRange);
+        int number2 = Utils.generateNumber(beginningOfRange, endOfRange);
+        int index = Utils.generateNumber(beginningOfRange, maxIndex);
         String[] operations = {"+", "*", "-"};
         String question = number1 + " " + operations[index] + " " + number2;
         return question;

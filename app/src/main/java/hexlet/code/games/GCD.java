@@ -1,7 +1,9 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Set;
+import hexlet.code.Utils;
 import org.apache.commons.lang3.RandomUtils;
 
 public class GCD {
@@ -11,19 +13,19 @@ public class GCD {
     private static final int COUNT_OF_DATA = 2;
 
     public static void startingGame(int gameNumber) {
-        Engine.launchGreeting();
+        String nameOfUser = Cli.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
-        GCD.playGCDGame(gameNumber);
+        GCD.playGCDGame(gameNumber, nameOfUser);
     }
 
-    public static void playGCDGame(int gameNumber) {
+    public static void playGCDGame(int gameNumber, String nameOfUser) {
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             String[] dataOfRound = GCD.generateRoundData(gameNumber);
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
-        Engine.launchGeneralStructure(values);
+        Engine.launchGeneralStructure(values, nameOfUser);
     }
 
     public static String[] generateRoundData(int gameNumber) {
@@ -32,8 +34,8 @@ public class GCD {
 
     public static String generateGCDQuestion() {
         final int maxNumber = 101;
-        int number1 = RandomUtils.nextInt(1, maxNumber);
-        int number2 = RandomUtils.nextInt(1, maxNumber);
+        int number1 = Utils.generateNumber(1, maxNumber);
+        int number2 = Utils.generateNumber(1, maxNumber);
         String question = Integer.toString(number1) + " " + Integer.toString(number2);
         return question;
     }

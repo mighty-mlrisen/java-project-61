@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void launchGeneralStructure(String[][] values) {
+    public static void launchGeneralStructure(String[][] values, String nameOfUser) {
         final int numberOfRounds = 3;
         int numberOfCorrectAnswers = 0;
         for (int i = 0; i < numberOfRounds; i++) {
@@ -15,33 +15,29 @@ public class Engine {
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
                 numberOfCorrectAnswers += 1;
-                Engine.checkNumberOfCorrectAnswers(numberOfCorrectAnswers);
+                Engine.checkNumberOfCorrectAnswers(numberOfCorrectAnswers, nameOfUser);
             } else {
-                Engine.getWrongAnswer(userAnswer, correctAnswer);
+                Engine.getWrongAnswer(userAnswer, correctAnswer, nameOfUser);
                 break;
             }
         }
     }
 
-    private  static void checkNumberOfCorrectAnswers(int countCorrectAnswer) {
+    private  static void checkNumberOfCorrectAnswers(int countCorrectAnswer, String nameOfUser) {
         final int maxNumberOfCorrectAnswers = 3;
         if (countCorrectAnswer == maxNumberOfCorrectAnswers) {
-            System.out.println("Congratulations, " + Cli.getName() + "!");
+            System.out.println("Congratulations, " + nameOfUser + "!");
         }
     }
 
-    private static void getWrongAnswer(String userAnswer, String correctAnswer) {
+    private static void getWrongAnswer(String userAnswer, String correctAnswer, String nameOfUser) {
         System.out.print("'" + userAnswer + "' " + "is wrong answer ;(. Correct answer was ");
         System.out.println("'" + correctAnswer + "'" + ".");
-        System.out.println("Let's try again, " + Cli.getName() + "!");
+        System.out.println("Let's try again, " + nameOfUser + "!");
     }
 
     private static String getUserAnswer() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
-    }
-
-    public static void launchGreeting() {
-        Cli.greeting();
     }
 }
