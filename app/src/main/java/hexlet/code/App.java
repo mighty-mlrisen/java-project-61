@@ -30,6 +30,7 @@ public class App {
                 break;
             case 1:
                 Cli.launchGreeting();
+                break;
             case GAME_NUMBER_EVEN:
                 Even.startGame(gameNumber);
                 break;
