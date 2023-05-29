@@ -27,7 +27,7 @@ public class App {
         int gameNumber = scanner.nextInt();
         switch (gameNumber) {
             case 0:
-                return;
+                break;
             case 1:
                 Cli.launchGreeting();
             case GAME_NUMBER_EVEN:
