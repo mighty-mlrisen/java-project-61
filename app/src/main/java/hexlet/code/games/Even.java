@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Engine;
-import hexlet.code.Set;
 import hexlet.code.Utils;
 
 public class Even {
@@ -19,15 +18,18 @@ public class Even {
     public static void playEvenGame(int gameNumber, String nameOfUser) {
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-            String[] dataOfRound = Even.generateRoundData(gameNumber);
+            String[] dataOfRound = Even.generateRoundData();
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
         Engine.launchGeneralStructure(values, nameOfUser);
     }
 
-    public static String[] generateRoundData(int gameNumber) {
-        return Set.checkGame(gameNumber);
+    public static String[] generateRoundData() {
+        String question = Even.generateEvenQuestion();
+        String correctAnswer = Even.getEvenCorrectAnswer(question);
+        String[] values = {question, correctAnswer};
+        return values;
     }
 
     public static String generateEvenQuestion() {

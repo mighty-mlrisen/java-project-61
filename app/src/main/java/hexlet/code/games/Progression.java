@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Engine;
-import hexlet.code.Set;
 import hexlet.code.Utils;
 
 public class Progression {
@@ -27,15 +26,18 @@ public class Progression {
     public static void playProgressionGame(int gameNumber, String nameOfUser) {
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-            String[] dataOfRound = Progression.generateRoundData(gameNumber);
+            String[] dataOfRound = Progression.generateRoundData();
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
         Engine.launchGeneralStructure(values, nameOfUser);
     }
 
-    public static String[] generateRoundData(int gameNumber) {
-        return Set.checkGame(gameNumber);
+    public static String[] generateRoundData() {
+        String question = Progression.generateProgressionQuestion();
+        String correctAnswer = Progression.getProgressionCorrectAnswer(question);
+        String[] values = {question, correctAnswer};
+        return values;
     }
 
     public static String generateProgressionQuestion() {
