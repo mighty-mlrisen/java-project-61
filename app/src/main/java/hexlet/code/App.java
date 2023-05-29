@@ -12,6 +12,7 @@ public class App {
     private static final int GAME_NUMBER_CALC = 3;
     private static final int GAME_NUMBER_GCD = 4;
     private static final int GAME_NUMBER_PROGRESSION = 5;
+    private static final int GAME_NUMBER_PRIME = 6;
 
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
@@ -23,18 +24,12 @@ public class App {
 
     public static void launchSelection() {
         Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt();
-        if (number == 0) {
-            return;
-        } else if (number == 1) {
-            Cli.launchGreeting();
-        } else {
-            App.launchGames(number);
-        }
-    }
-
-    public static void launchGames(int gameNumber) {
+        int gameNumber = scanner.nextInt();
         switch (gameNumber) {
+            case 0:
+                return;
+            case 1:
+                Cli.launchGreeting();
             case GAME_NUMBER_EVEN:
                 Even.startGame(gameNumber);
                 break;
@@ -47,8 +42,11 @@ public class App {
             case GAME_NUMBER_PROGRESSION:
                 Progression.startGame(gameNumber);
                 break;
-            default:
+            case GAME_NUMBER_PRIME:
                 Prime.startGame(gameNumber);
+                break;
+            default:
+                throw new Error("Unknown order of the game menu : " + gameNumber + " !");
         }
     }
 }
