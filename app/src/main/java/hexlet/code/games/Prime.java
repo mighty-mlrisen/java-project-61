@@ -41,7 +41,7 @@ public class Prime {
     public static boolean isPrime(String question) {
         int number = Integer.parseInt(question);
         if (number == 1) {
-            return true;
+            return false;
         }
         for (int d = 2; d * d <= number; d++) {
             if (number % d == 0) {
