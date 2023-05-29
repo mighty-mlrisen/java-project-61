@@ -40,10 +40,6 @@ public class Even {
 
     public static boolean isEven(String question) {
         int number = Integer.parseInt(question);
-        if (number % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number % 2 == 0;
     }
 }
