@@ -9,20 +9,16 @@ public class Prime {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
-    public static void startGame(int gameNumber) {
-        String nameOfUser = Cli.launchGreeting();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        Prime.playPrimeGame(gameNumber, nameOfUser);
-    }
 
-    public static void playPrimeGame(int gameNumber, String nameOfUser) {
+    public static void playPrimeGame() {
+        String description0fGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             String[] dataOfRound = Prime.generateRoundData();
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
-        Engine.launchGeneralStructure(values, nameOfUser);
+        Engine.launchGeneralStructure(values, description0fGame);
     }
 
     public static String[] generateRoundData() {

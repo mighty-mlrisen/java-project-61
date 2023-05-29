@@ -10,20 +10,15 @@ public class GCD {
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
 
-    public static void startGame(int gameNumber) {
-        String nameOfUser = Cli.launchGreeting();
-        System.out.println("Find the greatest common divisor of given numbers.");
-        GCD.playGCDGame(gameNumber, nameOfUser);
-    }
-
-    public static void playGCDGame(int gameNumber, String nameOfUser) {
+    public static void playGCDGame() {
+        String description0fGame = "Find the greatest common divisor of given numbers.";
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             String[] dataOfRound = GCD.generateRoundData();
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
-        Engine.launchGeneralStructure(values, nameOfUser);
+        Engine.launchGeneralStructure(values, description0fGame);
     }
 
     public static String[] generateRoundData() {

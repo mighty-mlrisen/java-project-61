@@ -10,20 +10,15 @@ public class Calc {
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
 
-    public static void startGame(int gameNumber) {
-        String nameOfUser = Cli.launchGreeting();
-        System.out.println("What is the result of the expression?");
-        Calc.playCalcGame(gameNumber, nameOfUser);
-    }
-
-    public static void playCalcGame(int gameNumber, String nameOfUser) {
+    public static void playCalcGame() {
+        String description0fGame = "What is the result of the expression?";
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             String[] dataOfRound = Calc.generateRoundData();
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
-        Engine.launchGeneralStructure(values, nameOfUser);
+        Engine.launchGeneralStructure(values, description0fGame);
     }
 
     public static String[] generateRoundData() {

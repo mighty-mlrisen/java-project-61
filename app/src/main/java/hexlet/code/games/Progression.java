@@ -16,21 +16,15 @@ public class Progression {
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
 
-
-    public static void startGame(int gameNumber) {
-        String nameOfUser = Cli.launchGreeting();
-        System.out.println("What number is missing in the progression?");
-        Progression.playProgressionGame(gameNumber, nameOfUser);
-    }
-
-    public static void playProgressionGame(int gameNumber, String nameOfUser) {
+    public static void playProgressionGame() {
+        String description0fGame = "What number is missing in the progression?";
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             String[] dataOfRound = Progression.generateRoundData();
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];
         }
-        Engine.launchGeneralStructure(values, nameOfUser);
+        Engine.launchGeneralStructure(values, description0fGame);
     }
 
     public static String[] generateRoundData() {

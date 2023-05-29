@@ -4,7 +4,12 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void launchGeneralStructure(String[][] values, String nameOfUser) {
+    public static void launchGeneralStructure(String[][] values, String description0fGame) {
+        System.out.println("\n" + "Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = Cli.launchGreeting();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(description0fGame);
         final int numberOfRounds = 3;
         int numberOfCorrectAnswers = 0;
         for (int i = 0; i < numberOfRounds; i++) {
@@ -15,9 +20,9 @@ public class Engine {
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
                 numberOfCorrectAnswers += 1;
-                Engine.checkNumberOfCorrectAnswers(numberOfCorrectAnswers, nameOfUser);
+                Engine.checkNumberOfCorrectAnswers(numberOfCorrectAnswers, userName);
             } else {
-                Engine.getWrongAnswer(userAnswer, correctAnswer, nameOfUser);
+                Engine.getWrongAnswer(userAnswer, correctAnswer, userName);
                 break;
             }
         }

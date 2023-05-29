@@ -29,22 +29,25 @@ public class App {
             case 0:
                 break;
             case 1:
-                Cli.launchGreeting();
+                System.out.println("\n" + "Welcome to the Brain Games!");
+                System.out.print("May I have your name? ");
+                String userName = Cli.launchGreeting();
+                System.out.println("Hello, " + userName + "!");
                 break;
             case GAME_NUMBER_EVEN:
-                Even.startGame(gameNumber);
+                Even.playEvenGame();
                 break;
             case GAME_NUMBER_CALC:
-                Calc.startGame(gameNumber);
+                Calc.playCalcGame();
                 break;
             case GAME_NUMBER_GCD:
-                GCD.startGame(gameNumber);
+                GCD.playGCDGame();
                 break;
             case GAME_NUMBER_PROGRESSION:
-                Progression.startGame(gameNumber);
+                Progression.playProgressionGame();
                 break;
             case GAME_NUMBER_PRIME:
-                Prime.startGame(gameNumber);
+                Prime.playPrimeGame();
                 break;
             default:
                 throw new Error("Unknown order of the game menu : " + gameNumber + " !");
