@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -23,7 +22,12 @@ public class Prime {
 
     public static String[] generateRoundData() {
         String question = Prime.generatePrimeQuestion();
-        String correctAnswer = Prime.getPrimeCorrectAnswer(question);
+        String correctAnswer;
+        if (Prime.isPrime(question)) {
+            correctAnswer = "yes";
+        } else {
+            correctAnswer = "no";
+        }
         String[] values = {question, correctAnswer};
         return values;
     }
@@ -34,16 +38,16 @@ public class Prime {
         return Integer.toString(number);
     }
 
-    public static String getPrimeCorrectAnswer(String question) {
+    public static boolean isPrime(String question) {
         int number = Integer.parseInt(question);
         if (number == 1) {
-            return "no";
+            return true;
         }
         for (int d = 2; d * d <= number; d++) {
             if (number % d == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 }

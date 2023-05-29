@@ -1,19 +1,16 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-
-    private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
 
     public static void playCalcGame() {
         String description0fGame = "What is the result of the expression?";
         String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
-        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+        for (int i = 0; i < COUNT_OF_ROUNDS; i++) {
             String[] dataOfRound = Calc.generateRoundData();
             values[i][0] = dataOfRound[0];
             values[i][1] = dataOfRound[1];

@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -23,7 +22,12 @@ public class Even {
 
     public static String[] generateRoundData() {
         String question = Even.generateEvenQuestion();
-        String correctAnswer = Even.getEvenCorrectAnswer(question);
+        String correctAnswer;
+        if (Even.isEven(question)) {
+            correctAnswer = "yes";
+        } else {
+            correctAnswer = "no";
+        }
         String[] values = {question, correctAnswer};
         return values;
     }
@@ -34,12 +38,12 @@ public class Even {
         return Integer.toString(number);
     }
 
-    public static String getEvenCorrectAnswer(String question) {
+    public static boolean isEven(String question) {
         int number = Integer.parseInt(question);
         if (number % 2 == 0) {
-            return "yes";
+            return true;
         } else {
-            return "no";
+            return false;
         }
     }
 }
