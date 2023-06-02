@@ -5,18 +5,13 @@ import hexlet.code.Utils;
 
 public class GCD {
 
-    private static final int NUMBER_OF_QUESTIONS = 3;
-    private static final int COUNT_OF_ROUNDS = 3;
-    private static final int COUNT_OF_DATA = 2;
     private static final int MAX_NUMBER = 101;
 
     public static void playGCDGame() {
         String description0fGame = "Find the greatest common divisor of given numbers.";
-        String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
-        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-            String[] dataOfRound = GCD.generateRoundData();
-            values[i][0] = dataOfRound[0];
-            values[i][1] = dataOfRound[1];
+        String[][] values = new String[Engine.COUNT_OF_ROUNDS][];
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
+            values[i] = GCD.generateRoundData();
         }
         Engine.launchGeneralStructure(values, description0fGame);
     }

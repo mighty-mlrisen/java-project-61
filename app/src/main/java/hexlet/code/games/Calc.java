@@ -4,19 +4,15 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    private static final int COUNT_OF_ROUNDS = 3;
-    private static final int COUNT_OF_DATA = 2;
     private static final int MAX_INDEX = 3;
     private static final int END_OF_RANGE = 20;
     private static final int BEGINNING_OF_RANGE = 0;
 
     public static void playCalcGame() {
         String description0fGame = "What is the result of the expression?";
-        String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
-        for (int i = 0; i < COUNT_OF_ROUNDS; i++) {
-            String[] dataOfRound = Calc.generateRoundData();
-            values[i][0] = dataOfRound[0];
-            values[i][1] = dataOfRound[1];
+        String[][] values = new String[Engine.COUNT_OF_ROUNDS][];
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
+            values[i] = Calc.generateRoundData();
         }
         Engine.launchGeneralStructure(values, description0fGame);
     }

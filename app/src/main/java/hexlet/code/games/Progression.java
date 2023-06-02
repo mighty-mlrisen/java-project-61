@@ -8,20 +8,12 @@ public class Progression {
     private static final int MAX_PROGRESSION_DIFFERENCES = 10;
     private static final int MAX_INDEX = 10;
     private static final int COUNT_NUMBERS = 10;
-    private static final int MOVING_TO_PREV_PREV_INDEX = 2;
-    private static final int PREV_INDEX = 1;
-    private static final int PREV_PREV_INDEX = 2;
-    private static final int NUMBER_OF_QUESTIONS = 3;
-    private static final int COUNT_OF_ROUNDS = 3;
-    private static final int COUNT_OF_DATA = 2;
 
     public static void playProgressionGame() {
         String description0fGame = "What number is missing in the progression?";
-        String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
-        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-            String[] dataOfRound = Progression.generateRoundData();
-            values[i][0] = dataOfRound[0];
-            values[i][1] = dataOfRound[1];
+        String[][] values = new String[Engine.COUNT_OF_ROUNDS][];
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
+            values[i] = Progression.generateRoundData();
         }
         Engine.launchGeneralStructure(values, description0fGame);
     }

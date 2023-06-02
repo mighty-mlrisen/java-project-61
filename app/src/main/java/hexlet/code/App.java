@@ -8,7 +8,7 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
-    public static final int GAME_NUMBER_EVEN = 2;
+    private static final int GAME_NUMBER_EVEN = 2;
     private static final int GAME_NUMBER_CALC = 3;
     private static final int GAME_NUMBER_GCD = 4;
     private static final int GAME_NUMBER_PROGRESSION = 5;
@@ -29,10 +29,7 @@ public class App {
             case 0:
                 break;
             case 1:
-                System.out.println("\n" + "Welcome to the Brain Games!");
-                System.out.print("May I have your name? ");
-                String userName = Cli.launchGreeting();
-                System.out.println("Hello, " + userName + "!");
+                Cli.launchGreeting();
                 break;
             case GAME_NUMBER_EVEN:
                 Even.playEvenGame();

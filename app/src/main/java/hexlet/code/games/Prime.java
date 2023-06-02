@@ -5,18 +5,13 @@ import hexlet.code.Utils;
 
 public class Prime {
 
-    private static final int NUMBER_OF_QUESTIONS = 3;
-    private static final int COUNT_OF_ROUNDS = 3;
-    private static final int COUNT_OF_DATA = 2;
     private static final int MAX_NUMBER = 100;
 
     public static void playPrimeGame() {
         String description0fGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[][] values = new String[COUNT_OF_ROUNDS][COUNT_OF_DATA];
-        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-            String[] dataOfRound = Prime.generateRoundData();
-            values[i][0] = dataOfRound[0];
-            values[i][1] = dataOfRound[1];
+        String[][] values = new String[Engine.COUNT_OF_ROUNDS][];
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
+            values[i] = Prime.generateRoundData();
         }
         Engine.launchGeneralStructure(values, description0fGame);
     }

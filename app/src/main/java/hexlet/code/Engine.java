@@ -4,14 +4,16 @@ import java.util.Scanner;
 
 public class Engine {
 
+    public static final int COUNT_OF_ROUNDS = 3;
+
     public static void launchGeneralStructure(String[][] values, String description0fGame) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("\n" + "Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String userName = Cli.launchGreeting();
+        String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(description0fGame);
-        final int numberOfRounds = 3;
-        for (int i = 0; i < numberOfRounds; i++) {
+        for (int i = 0; i < COUNT_OF_ROUNDS; i++) {
             String question = values[i][0];
             String correctAnswer = values[i][1];
             System.out.print("Question: " + question + "\n" + "Your answer: ");
