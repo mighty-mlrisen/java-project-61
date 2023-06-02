@@ -8,7 +8,7 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
-    private static final int GAME_NUMBER_EVEN = 2;
+    public static final int GAME_NUMBER_EVEN = 2;
     private static final int GAME_NUMBER_CALC = 3;
     private static final int GAME_NUMBER_GCD = 4;
     private static final int GAME_NUMBER_PROGRESSION = 5;

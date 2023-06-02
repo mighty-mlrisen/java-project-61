@@ -8,6 +8,7 @@ public class Even {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
+    private static final int MAX_NUMBER = 1000;
 
     public static void playEvenGame() {
         String description0fGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
@@ -21,25 +22,19 @@ public class Even {
     }
 
     public static String[] generateRoundData() {
-        String question = Even.generateEvenQuestion();
+        int number = Utils.generateNumber(0, MAX_NUMBER);
         String correctAnswer;
-        if (Even.isEven(question)) {
+        if (Even.isEven(number)) {
             correctAnswer = "yes";
         } else {
             correctAnswer = "no";
         }
+        String question = Integer.toString(number);
         String[] values = {question, correctAnswer};
         return values;
     }
 
-    public static String generateEvenQuestion() {
-        final int maxNumber = 1000;
-        int number = Utils.generateNumber(0, maxNumber);
-        return Integer.toString(number);
-    }
-
-    public static boolean isEven(String question) {
-        int number = Integer.parseInt(question);
+    public static boolean isEven(int number) {
         return number % 2 == 0;
     }
 }

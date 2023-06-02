@@ -27,15 +27,18 @@ public class Progression {
     }
 
     public static String[] generateRoundData() {
-        String question = Progression.generateProgressionQuestion();
-        String correctAnswer = Progression.getProgressionCorrectAnswer(question);
+        int number1 = Utils.generateNumber(1, MAX_NUMBER);
+        int progressionDifferences = Utils.generateNumber(1, MAX_PROGRESSION_DIFFERENCES);
+        String[] progression = Progression.generateProgression(number1, progressionDifferences);
+        int index = Utils.generateNumber(0, MAX_INDEX);
+        String correctAnswer = progression[index];
+        progression[index] = "..";
+        String question = String.join(" ", progression);
         String[] values = {question, correctAnswer};
         return values;
     }
 
-    public static String generateProgressionQuestion() {
-        int number1 = Utils.generateNumber(1, MAX_NUMBER);
-        int progressionDifferences = Utils.generateNumber(1, MAX_PROGRESSION_DIFFERENCES);
+    public static String[] generateProgression(int  number1, int progressionDifferences) {
         String[] values = new String[COUNT_NUMBERS];
         values[0] = Integer.toString(number1);
         int number = number1;
@@ -43,32 +46,6 @@ public class Progression {
             number += progressionDifferences;
             values[i] = Integer.toString(number);
         }
-        int index = Utils.generateNumber(0, MAX_INDEX);
-        values[index] = "..";
-        String question = String.join(" ", values);
-        return question;
-    }
-
-    public static String getProgressionCorrectAnswer(String question) {
-        String[] values = question.split(" ");
-        int index = 0;
-        int missingNumber;
-        for (int i = 0; i < values.length; i++) {
-            if (values[i].equals("..")) {
-                index = i;
-            }
-        }
-        if (index - MOVING_TO_PREV_PREV_INDEX >= 0) {
-            missingNumber = calculateMissingNumber(values, index, -PREV_INDEX, -PREV_PREV_INDEX);
-        } else {
-            missingNumber = calculateMissingNumber(values, index, +1, +2);
-        }
-        return Integer.toString(missingNumber);
-    }
-
-    private static int calculateMissingNumber(String[] values, int index, int prevIndex, int prevPrevIndex) {
-        int prevValue = Integer.parseInt(values[index + prevIndex]);
-        int prevPrevValue = Integer.parseInt(values[index + prevPrevIndex]);
-        return prevValue + (prevValue - prevPrevValue);
+        return values;
     }
 }

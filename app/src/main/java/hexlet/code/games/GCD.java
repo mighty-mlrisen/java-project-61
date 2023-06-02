@@ -8,6 +8,7 @@ public class GCD {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
+    private static final int MAX_NUMBER = 101;
 
     public static void playGCDGame() {
         String description0fGame = "Find the greatest common divisor of given numbers.";
@@ -21,42 +22,24 @@ public class GCD {
     }
 
     public static String[] generateRoundData() {
-        String question = GCD.generateGCDQuestion();
-        String correctAnswer = GCD.getGCDCorrectAnswer(question);
+        int number1 = Utils.generateNumber(1, MAX_NUMBER);
+        int number2 = Utils.generateNumber(1, MAX_NUMBER);
+        String question = Integer.toString(number1) + " " + Integer.toString(number2);
+        int nod = GCD.getNod0fNumbers(number1, number2);
+        String correctAnswer = Integer.toString(nod);
         String[] values = {question, correctAnswer};
         return values;
     }
 
-    public static String generateGCDQuestion() {
-        final int maxNumber = 101;
-        int number1 = Utils.generateNumber(1, maxNumber);
-        int number2 = Utils.generateNumber(1, maxNumber);
-        String question = Integer.toString(number1) + " " + Integer.toString(number2);
-        return question;
-    }
-
-    public static String getGCDCorrectAnswer(String question) {
-        String[] values = question.split(" ");
-        int number1 = Integer.parseInt(values[0]);
-        int number2 = Integer.parseInt(values[1]);
-        int temp = GCD.getMinOfNumbers(number1, number2);
+    public static int getNod0fNumbers(int number1, int number2) {
+        int temp = Math.min(number1, number2);
         int nod = 1;
         for (int i = temp; i > 0; i -= 1) {
             if (number1 % i == 0 && number2 % i == 0) {
                 nod = i;
-                return Integer.toString(nod);
+                return nod;
             }
         }
-        return Integer.toString(nod);
-    }
-
-    private static int getMinOfNumbers(int number1, int number2) {
-        int temp;
-        if (number1 > number2) {
-            temp = number2;
-        } else {
-            temp = number1;
-        }
-        return temp;
+        return nod;
     }
 }

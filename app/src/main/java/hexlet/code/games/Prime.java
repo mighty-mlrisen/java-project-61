@@ -8,6 +8,7 @@ public class Prime {
     private static final int NUMBER_OF_QUESTIONS = 3;
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
+    private static final int MAX_NUMBER = 100;
 
     public static void playPrimeGame() {
         String description0fGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
@@ -21,9 +22,10 @@ public class Prime {
     }
 
     public static String[] generateRoundData() {
-        String question = Prime.generatePrimeQuestion();
+        int number = Utils.generateNumber(1, MAX_NUMBER);
+        String question = Integer.toString(number);
         String correctAnswer;
-        if (Prime.isPrime(question)) {
+        if (Prime.isPrime(number)) {
             correctAnswer = "yes";
         } else {
             correctAnswer = "no";
@@ -32,14 +34,7 @@ public class Prime {
         return values;
     }
 
-    public static String generatePrimeQuestion() {
-        final int maxNumber = 100;
-        int number = Utils.generateNumber(1, maxNumber);
-        return Integer.toString(number);
-    }
-
-    public static boolean isPrime(String question) {
-        int number = Integer.parseInt(question);
+    public static boolean isPrime(int number) {
         if (number == 1) {
             return false;
         }

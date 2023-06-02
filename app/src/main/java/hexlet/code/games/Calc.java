@@ -6,6 +6,9 @@ import hexlet.code.Utils;
 public class Calc {
     private static final int COUNT_OF_ROUNDS = 3;
     private static final int COUNT_OF_DATA = 2;
+    private static final int MAX_INDEX = 3;
+    private static final int END_OF_RANGE = 20;
+    private static final int BEGINNING_OF_RANGE = 0;
 
     public static void playCalcGame() {
         String description0fGame = "What is the result of the expression?";
@@ -19,31 +22,18 @@ public class Calc {
     }
 
     public static String[] generateRoundData() {
-        String question = Calc.generateCalcQuestion();
-        String correctAnswer = Calc.getCalcCorrectAnswer(question);
+        int number1 = Utils.generateNumber(BEGINNING_OF_RANGE, END_OF_RANGE);
+        int number2 = Utils.generateNumber(BEGINNING_OF_RANGE, END_OF_RANGE);
+        int index = Utils.generateNumber(BEGINNING_OF_RANGE, MAX_INDEX);
+        String[] operations = {"+", "*", "-"};
+        String question = number1 + " " + operations[index] + " " + number2;
+        String correctAnswer = getCalcResult(operations[index], number1, number2);
         String[] values = {question, correctAnswer};
         return values;
     }
 
-    public static String generateCalcQuestion() {
-        final int maxIndex = 3;
-        final int endOfRange = 20;
-        final int beginningOfRange = 0;
-
-        int number1 = Utils.generateNumber(beginningOfRange, endOfRange);
-        int number2 = Utils.generateNumber(beginningOfRange, endOfRange);
-        int index = Utils.generateNumber(beginningOfRange, maxIndex);
-        String[] operations = {"+", "*", "-"};
-        String question = number1 + " " + operations[index] + " " + number2;
-        return question;
-    }
-
-    public static String getCalcCorrectAnswer(String question) {
-        String[] array = question.split(" ");
-        int number1 = Integer.parseInt(array[0]);
-        int number2 = Integer.parseInt(array[2]);
+    public static String getCalcResult(String operation, int number1, int number2) {
         int result;
-        String operation = array[1];
         switch (operation) {
             case "+":
                 result = number1 + number2;
