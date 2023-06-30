@@ -10,6 +10,7 @@ public class Prime {
     public static void playPrimeGame() {
         String description0fGame = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] values = new String[Engine.COUNT_OF_ROUNDS][];
+        int x;
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             values[i] = Prime.generateRoundData();
         }
